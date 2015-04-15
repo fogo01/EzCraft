@@ -21,7 +21,7 @@ public class BlockEzCraft extends Block {
     }
 
     public int quantityDropped(Random p_149745_1_) {
-        return 0;
+        return 1;
     }
 
     @Override

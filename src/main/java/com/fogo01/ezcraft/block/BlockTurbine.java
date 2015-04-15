@@ -9,6 +9,9 @@ public class BlockTurbine extends BlockEzCraft {
     public BlockTurbine(){
         super();
         this.setBlockName("Turbine");
+        this.setHardness(3.0F);
+        this.setResistance(5.0F);
+        this.setHarvestLevel("pickaxe", 1);
     }
 
     @SideOnly(Side.CLIENT)

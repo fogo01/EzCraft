@@ -1,5 +1,6 @@
 package com.fogo01.ezcraft.block;
 
+import com.fogo01.ezcraft.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -98,8 +99,8 @@ public class BlockMiningExplosive extends BlockEzCraft {
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister p_149651_1_) {
-        this.blockIcon = p_149651_1_.registerIcon("ezcraft:" + this.getTextureName() + "_side");
-        this.top = p_149651_1_.registerIcon("ezcraft:" + this.getTextureName() + "_top");
-        this.bottom = p_149651_1_.registerIcon("ezcraft:" + this.getTextureName() + "_bottom");
+        this.blockIcon = p_149651_1_.registerIcon(Reference.MOD_ID + ":" + this.getTextureName() + "_side");
+        this.top = p_149651_1_.registerIcon(Reference.MOD_ID + ":" + this.getTextureName() + "_top");
+        this.bottom = p_149651_1_.registerIcon(Reference.MOD_ID + ":" + this.getTextureName() + "_bottom");
     }
 }

@@ -8,5 +8,7 @@ public class BlockAlOre extends BlockEzCraft {
             super();
             this.setBlockName("AlOre");
             this.setHarvestLevel("pickaxe", 1);
+            this.setHardness(3.0F);
+            this.setResistance(5.0F);
         }
 }
