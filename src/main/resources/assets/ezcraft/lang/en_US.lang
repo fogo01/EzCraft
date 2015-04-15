@@ -1,0 +1,15 @@
+itemGroup.ezcraft=Ez Craft
+
+item.ezcraft:Hammer.name=Hammer
+item.ezcraft:IronHammer.name=Iron Hammer
+item.ezcraft:ChunkHammer.name=Chunk Hammer
+item.ezcraft:DiamondHammer.name=Diamond Hammer
+item.ezcraft:AlIngot.name=Aluminum Ingot
+item.ezcraft:Railgun.name=Railgun
+item.ezcraft:RedstoneBolt.name=Redstone Bolt
+
+tile.ezcraft:AlOre.name=Aluminum Ore
+tile.ezcraft:AlBlock.name=Aluminum Block
+tile.ezcraft:Turbine.name=Turbine
+tile.ezcraft:MiningExplosive.name=Mining Explosive
+tile.ezcraft:DeployableMine.name=Deployable Mine
