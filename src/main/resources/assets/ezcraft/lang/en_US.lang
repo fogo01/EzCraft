@@ -7,6 +7,19 @@ item.ezcraft:DiamondHammer.name=Diamond Hammer
 item.ezcraft:AlIngot.name=Aluminum Ingot
 item.ezcraft:Railgun.name=Railgun
 item.ezcraft:RedstoneBolt.name=Redstone Bolt
+item.ezcraft:EnderpearlLauncer.name=Enderpearl Launcher
+
+item.ezcraft:GodlySword.name=Godly Sword
+item.ezcraft:GodlyPickaxe.name=Godly Pickaxe
+item.ezcraft:GodlyShovel.name=Godly Shovel
+item.ezcraft:GodlyAxe.name=Godly Axe
+item.ezcraft:GodlyHoe.name=Godly Hoe
+
+item.ezcraft:GodlyHelmet.name=Godly Helmet
+item.ezcraft:GodlyChestplate.name=Godly Chestplate
+item.ezcraft:GodlyLeggings.name=Godly Leggings
+item.ezcraft:GodlyBoots.name=Godly Boots
+
 
 tile.ezcraft:AlOre.name=Aluminum Ore
 tile.ezcraft:AlBlock.name=Aluminum Block
