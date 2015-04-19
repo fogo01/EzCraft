@@ -9,6 +9,7 @@ public class BlockMagicCarpetBlock extends BlockEzCraft {
         super();
         this.setBlockName("MagicCarpetBlock");
         this.setBlockUnbreakable();
+        this.setCreativeTab(null);
     }
 
     @Override

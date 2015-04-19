@@ -24,14 +24,38 @@ public class ItemMagicCarpet extends ItemEzCraft {
         int playerY = (int)player.posY;
         int playerZ = (int)player.posZ;
 
+        if (playerX < 0) {
+            playerX = playerX -1;
+        }
+
+        if (playerZ < 0) {
+            playerZ = playerZ -1;
+        }
+
         LogHelper.info(playerX + " " + playerY + " " + playerZ);
+
+        int X1 = playerX - 3;
+        for (; X1 <= playerX + 3; X1++) {
+            int Y1 = playerY -3;
+            for (; Y1 <= playerY + 3; Y1++) {
+                int Z1 = playerZ - 3;
+                for (; Z1 <= playerZ + 3; Z1++) {
+                    if (!world.isRemote) {
+                        Block block = world.getBlock(X1, Y1, Z1);
+                        if (block == ModBlocks.MagicCarpetBlock) {
+                            world.setBlockToAir(X1, Y1, Z1);
+                        }
+                    }
+                }
+            }
+        }
 
         int Y = playerY - 1;
 
         int X = playerX - 1;
-        for (; X <= playerX + 2; X++) {
+        for (; X <= playerX + 1; X++) {
             int Z = playerZ - 1;
-            for (; Z <= playerZ + 2; Z++) {
+            for (; Z <= playerZ + 1; Z++) {
                 if (!world.isRemote) {
                     Block block = world.getBlock(X, Y, Z);
                     if (block == Blocks.air) {

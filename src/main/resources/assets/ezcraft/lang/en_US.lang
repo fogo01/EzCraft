@@ -27,3 +27,4 @@ tile.ezcraft:AlBlock.name=Aluminum Block
 tile.ezcraft:Turbine.name=Turbine
 tile.ezcraft:MiningExplosive.name=Mining Explosive
 tile.ezcraft:DeployableMine.name=Deployable Mine
+tile.ezcraft:MagicCarpetBlock.name=Magic Carpet Block
