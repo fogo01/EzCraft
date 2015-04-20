@@ -5,6 +5,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
@@ -18,6 +19,7 @@ public class Recipies {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.AlBlock), "AAA", "AAA", "AAA", 'A', "ingotAluminum"));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.IronHammer), "III", " O ", " O ", 'I', "blockIron", 'O', Blocks.obsidian));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.DiamondHammer), "DDD", " O ", " O ", 'D', "blockDiamond", 'O', Blocks.obsidian));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.FlameThrower), "AAA", "F C", 'A', "ingotAluminum", 'F', Items.flint_and_steel, 'C', "blockCoal"));
 
 
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.AlIngot, 9), ModBlocks.AlBlock));

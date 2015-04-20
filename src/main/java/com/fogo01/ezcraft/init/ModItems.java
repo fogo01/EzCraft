@@ -13,6 +13,7 @@ public class ModItems {
     public static final ItemEzCraft RedstoneBolt = new ItemRedstoneBolt();
     public static final ItemEzCraft EnderPearlLuancher = new ItemEnderpearlLauncher();
     public static final ItemEzCraft MagicCarpet = new ItemMagicCarpet();
+    public static final ItemEzCraft FlameThrower = new ItemFlameThrower();
 
     public static final ItemPickaxe IronHammer = new ItemIronHammer();
     public static final ItemPickaxe DiamondHammer = new ItemDiamondHammer();
@@ -38,6 +39,7 @@ public class ModItems {
         GameRegistry.registerItem(RedstoneBolt, "RedstoneBolt");
         //GameRegistry.registerItem(EnderPearlLuancher, "EnderpearlLauncher");
         GameRegistry.registerItem(MagicCarpet, "MagicCarpet");
+        GameRegistry.registerItem(FlameThrower, "FlameThrower");
 
         GameRegistry.registerItem(GodlySword, "GodlySword");
         GameRegistry.registerItem(GodlyPickaxe, "GodlyPickaxe");

@@ -6,7 +6,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
     public void registerRenderThings() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityRailgunBolt.class, new RenderRailgunBolt());
+
     }
 
     public void registerTileEntitySpecialRender() {

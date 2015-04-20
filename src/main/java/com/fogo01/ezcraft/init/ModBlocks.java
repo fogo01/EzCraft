@@ -10,6 +10,7 @@ public class ModBlocks {
     public static final BlockEzCraft MiningExplosive = new BlockMiningExplosive();
     public static final BlockEzCraft DeployableMine = new BlockDeployableMine();
     public static final BlockEzCraft MagicCarpetBlock = new BlockMagicCarpetBlock();
+    public static final BlockEzCraft Grinder = new BlockGrinder();
 
     public static void init(){
         GameRegistry.registerBlock(AlOre, "AlOre");
@@ -18,5 +19,6 @@ public class ModBlocks {
         GameRegistry.registerBlock(MiningExplosive, "MiningExplosive");
         GameRegistry.registerBlock(DeployableMine, "DeployableMine");
         GameRegistry.registerBlock(MagicCarpetBlock, "MagicCarpetBlock");
+        GameRegistry.registerBlock(Grinder, "Grinder");
     }
 }
