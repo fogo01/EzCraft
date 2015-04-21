@@ -4,10 +4,7 @@ import com.fogo01.ezcraft.entities.EntityFlame;
 import com.fogo01.ezcraft.handler.ConfigurationHandler;
 import com.fogo01.ezcraft.entities.EntityRailgunBolt;
 import com.fogo01.ezcraft.genaration.BlockGeneration;
-import com.fogo01.ezcraft.init.ModBlocks;
-import com.fogo01.ezcraft.init.ModItems;
-import com.fogo01.ezcraft.init.OreDict;
-import com.fogo01.ezcraft.init.Recipies;
+import com.fogo01.ezcraft.init.*;
 import com.fogo01.ezcraft.proxy.ClientProxy;
 import com.fogo01.ezcraft.proxy.IProxy;
 import com.fogo01.ezcraft.reference.Reference;
@@ -45,12 +42,7 @@ public class EzCraft {
         ModItems.init();
         ModBlocks.init();
         OreDict.init();
-
-        EntityRegistry.registerModEntity(EntityRailgunBolt.class, "RailgunBolt", 1, instance, 120, 3, true );
-        EntityRegistry.registerModEntity(EntityFlame.class, "Flame", 2, instance, 120, 3, true );
-
-        RenderingRegistry.registerEntityRenderingHandler(EntityRailgunBolt.class, new RenderRailgunBolt());
-        RenderingRegistry.registerEntityRenderingHandler(EntityFlame.class, new RenderFlame());
+        ModEntities.init();
 
         GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 

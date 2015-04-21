@@ -14,6 +14,7 @@ public class ModItems {
     public static final ItemEzCraft EnderPearlLuancher = new ItemEnderpearlLauncher();
     public static final ItemEzCraft MagicCarpet = new ItemMagicCarpet();
     public static final ItemEzCraft FlameThrower = new ItemFlameThrower();
+    public static final ItemEzCraft FuelTank = new ItemFuelTank();
 
     public static final ItemPickaxe IronHammer = new ItemIronHammer();
     public static final ItemPickaxe DiamondHammer = new ItemDiamondHammer();
@@ -24,10 +25,10 @@ public class ModItems {
     public static final ItemAxe GodlyAxe = new ItemGodlyAxe();
     public static final ItemHoe GodlyHoe = new ItemGodlyHoe();
 
-    public static final ItemArmor ItemGodlyHelmet = new ItemGodlyHelmet();
-    public static final ItemArmor ItemGodlyChestplate = new ItemGodlyChestplate();
-    public static final ItemArmor ItemGodlyLeggings = new ItemGodlyLeggings();
-    public static final ItemArmor ItemGodlyBoots = new ItemGodlyBoots();
+    public static final ItemArmor GodlyHelmet = new ItemGodlyHelmet();
+    public static final ItemArmor GodlyChestplate = new ItemGodlyChestplate();
+    public static final ItemArmor GodlyLeggings = new ItemGodlyLeggings();
+    public static final ItemArmor GodlyBoots = new ItemGodlyBoots();
 
     public static void init(){
         GameRegistry.registerItem(IronHammer, "IronHammer");
@@ -37,9 +38,10 @@ public class ModItems {
         GameRegistry.registerItem(AlIngot, "AlIngot");
         GameRegistry.registerItem(Railgun, "Railgun");
         GameRegistry.registerItem(RedstoneBolt, "RedstoneBolt");
-        //GameRegistry.registerItem(EnderPearlLuancher, "EnderpearlLauncher");
+        GameRegistry.registerItem(EnderPearlLuancher, "EnderpearlLauncher");
         GameRegistry.registerItem(MagicCarpet, "MagicCarpet");
         GameRegistry.registerItem(FlameThrower, "FlameThrower");
+        GameRegistry.registerItem(FuelTank, "FuelTank");
 
         GameRegistry.registerItem(GodlySword, "GodlySword");
         GameRegistry.registerItem(GodlyPickaxe, "GodlyPickaxe");
@@ -47,9 +49,9 @@ public class ModItems {
         GameRegistry.registerItem(GodlyAxe, "GodlyAxe");
         GameRegistry.registerItem(GodlyHoe, "GodlyHoe");
 
-        GameRegistry.registerItem(ItemGodlyHelmet, "GodlyHelmet");
-        GameRegistry.registerItem(ItemGodlyChestplate, "GodlyChestplate");
-        GameRegistry.registerItem(ItemGodlyLeggings, "GodlyLeggins");
-        GameRegistry.registerItem(ItemGodlyBoots, "GodlyBoots");
+        GameRegistry.registerItem(GodlyHelmet, "GodlyHelmet");
+        GameRegistry.registerItem(GodlyChestplate, "GodlyChestplate");
+        GameRegistry.registerItem(GodlyLeggings, "GodlyLeggins");
+        GameRegistry.registerItem(GodlyBoots, "GodlyBoots");
 	}
 }

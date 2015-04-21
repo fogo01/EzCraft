@@ -1,6 +1,7 @@
 package com.fogo01.ezcraft.items;
 
 import com.fogo01.ezcraft.entities.EntityFlame;
+import com.fogo01.ezcraft.init.ModItems;
 import com.fogo01.ezcraft.utility.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -31,14 +32,22 @@ public class ItemFlameThrower extends ItemEzCraft {
         float Y = -MathHelper.sin((float)pitch / 180.0F * (float)Math.PI) * f;
         float Z = MathHelper.cos((float)yaw / 180.0F * (float)Math.PI) * MathHelper.cos((float)pitch / 180.0F * (float)Math.PI) * f;
 
-        EntityFlame entityFlame = new EntityFlame(world, player);
-        if (!world.isRemote) {
-            world.spawnEntityInWorld(entityFlame);
+        if (getDamage(itemStack) < this.getMaxDamage() && !player.isSneaking() ) {
+            EntityFlame entityFlame = new EntityFlame(world, player);
+            if (!world.isRemote) {
+                world.spawnEntityInWorld(entityFlame);
+            }
+
+            if (!player.capabilities.isCreativeMode) {
+                itemStack.damageItem(1, player);
+            }
         }
 
-        if (!player.capabilities.isCreativeMode) {
-            itemStack.damageItem(1, player);
+        if (player.isSneaking() && player.inventory.hasItem(ModItems.FuelTank) && getDamage(itemStack) > 128) {
+            player.inventory.consumeInventoryItem(ModItems.FuelTank);
+            itemStack.damageItem(-128, player);
         }
+
         return itemStack;
     }
 }

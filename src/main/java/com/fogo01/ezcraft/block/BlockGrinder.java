@@ -16,10 +16,9 @@ public class BlockGrinder extends BlockEzCraft {
 
     @Override
     public void onEntityWalking(World world, int X, int Y, int Z, Entity entity) {
-        //super.onEntityWalking(world, X, Y, Z, entity);
         EntityLivingBase entityLivingBase = (EntityLivingBase)entity;
         if (entityLivingBase.getHealth() > 1) {
-            entityLivingBase.attackEntityFrom(DamageSource.cactus, 1.0F);
+            entityLivingBase.attackEntityFrom(DamageSource.generic, entityLivingBase.getHealth() - 1.0F);
         }
     }
 }
