@@ -15,7 +15,7 @@ public class ItemEnderpearlLauncher extends ItemEzCraft {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
-        float f = 4.0F;
+        float f = 3.0F;
 
         float yaw = player.rotationYaw;
         float pitch = player.rotationPitch;

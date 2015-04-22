@@ -1,7 +1,6 @@
 package com.fogo01.ezcraft.items;
 
 import com.fogo01.ezcraft.init.ModBlocks;
-import com.fogo01.ezcraft.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -17,8 +16,6 @@ public class ItemMagicCarpet extends ItemEzCraft {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
-        LogHelper.info("Click");
-
 
         int playerX = (int)player.posX;
         int playerY = (int)player.posY;
@@ -31,8 +28,6 @@ public class ItemMagicCarpet extends ItemEzCraft {
         if (playerZ < 0) {
             playerZ = playerZ -1;
         }
-
-        LogHelper.info(playerX + " " + playerY + " " + playerZ);
 
         int X1 = playerX - 3;
         for (; X1 <= playerX + 3; X1++) {
@@ -62,7 +57,6 @@ public class ItemMagicCarpet extends ItemEzCraft {
                         world.setBlock(X, Y, Z, ModBlocks.MagicCarpetBlock, 0, 3);
                     }
                 }
-                LogHelper.info(X + " " + Y + " " + Z);
             }
         }
         return itemStack;

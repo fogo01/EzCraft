@@ -1,24 +1,17 @@
 package com.fogo01.ezcraft;
 
-import com.fogo01.ezcraft.entities.EntityFlame;
 import com.fogo01.ezcraft.handler.ConfigurationHandler;
-import com.fogo01.ezcraft.entities.EntityRailgunBolt;
 import com.fogo01.ezcraft.genaration.BlockGeneration;
 import com.fogo01.ezcraft.init.*;
-import com.fogo01.ezcraft.proxy.ClientProxy;
 import com.fogo01.ezcraft.proxy.IProxy;
 import com.fogo01.ezcraft.reference.Reference;
-import com.fogo01.ezcraft.render.RenderFlame;
-import com.fogo01.ezcraft.render.RenderRailgunBolt;
 import com.fogo01.ezcraft.utility.LogHelper;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERISION, guiFactory = Reference.GUI_FACTORY_CLASS)

@@ -23,8 +23,8 @@ public class ItemGodlyHelmet extends ItemArmor {
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
         if (player.getCurrentArmor(3).getItem() == ModItems.GodlyHelmet){
-            player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 20, 99));
-            player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 20, 99));
+            player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 20, 9));
+            player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 20, 9));
         }
     }
 

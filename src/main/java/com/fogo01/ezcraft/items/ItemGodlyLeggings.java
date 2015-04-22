@@ -23,7 +23,7 @@ public class ItemGodlyLeggings extends ItemArmor {
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
         if (player.getCurrentArmor(1).getItem() == ModItems.GodlyLeggings){
-            player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 20, 99));
+            player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 20, 9));
         }
     }
 
