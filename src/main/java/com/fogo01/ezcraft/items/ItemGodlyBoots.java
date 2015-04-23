@@ -4,7 +4,6 @@ import com.fogo01.ezcraft.crativetab.CreativeTabEzCraft;
 import com.fogo01.ezcraft.init.ModItems;
 import com.fogo01.ezcraft.reference.RefMaterials;
 import com.fogo01.ezcraft.reference.Reference;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
@@ -20,13 +19,6 @@ public class ItemGodlyBoots extends ItemArmor {
         this.setMaxStackSize(1);
         this.setTextureName(Reference.MOD_ID + ":GodlyBoots");
         this.setCreativeTab(CreativeTabEzCraft.EzCraft_TAB);
-    }
-
-    @Override
-    public void onUpdate(ItemStack itemStack, World world, Entity entity, int p_77663_4_, boolean p_77663_5_) {
-        if (!itemStack.isItemEnchanted()) {
-            //itemStack.addEnchantment(Enchantment.featherFalling, 10);
-        }
     }
 
     @Override

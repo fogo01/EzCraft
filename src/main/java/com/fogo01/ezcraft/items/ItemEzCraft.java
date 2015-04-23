@@ -1,6 +1,5 @@
 package com.fogo01.ezcraft.items;
 
-import com.fogo01.ezcraft.crativetab.CreativeTabEzCraft;
 import com.fogo01.ezcraft.reference.Reference;
 
 import cpw.mods.fml.relauncher.Side;

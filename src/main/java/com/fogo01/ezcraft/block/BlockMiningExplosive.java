@@ -3,7 +3,6 @@ package com.fogo01.ezcraft.block;
 import com.fogo01.ezcraft.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.util.IIcon;

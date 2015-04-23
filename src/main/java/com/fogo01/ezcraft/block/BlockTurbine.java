@@ -3,10 +3,7 @@ package com.fogo01.ezcraft.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
 
 public class BlockTurbine extends BlockEzCraft {
     public BlockTurbine(){

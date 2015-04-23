@@ -3,7 +3,6 @@ package com.fogo01.ezcraft.items;
 import com.fogo01.ezcraft.crativetab.CreativeTabEzCraft;
 import com.fogo01.ezcraft.reference.RefHammers;
 import com.fogo01.ezcraft.reference.Reference;
-import com.fogo01.ezcraft.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPistonBase;
 import net.minecraft.entity.EntityLivingBase;

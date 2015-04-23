@@ -1,7 +1,6 @@
 package com.fogo01.ezcraft.init;
 
-import com.fogo01.ezcraft.entities.EntityFlame;
-import com.fogo01.ezcraft.entities.EntityRailgunBolt;
+import com.fogo01.ezcraft.entities.*;
 import com.fogo01.ezcraft.reference.Reference;
 import com.fogo01.ezcraft.render.RenderFlame;
 import com.fogo01.ezcraft.render.RenderRailgunBolt;

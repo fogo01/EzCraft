@@ -3,18 +3,13 @@ package com.fogo01.ezcraft.items;
 import com.fogo01.ezcraft.crativetab.CreativeTabEzCraft;
 import com.fogo01.ezcraft.reference.RefHammers;
 import com.fogo01.ezcraft.reference.Reference;
-import com.fogo01.ezcraft.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPistonBase;
-import net.minecraft.block.material.Material;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.event.world.BlockEvent;
 
 public class ItemIronHammer extends ItemPickaxe {
     public ItemIronHammer() {

@@ -2,8 +2,8 @@
 {
   "modid": "EzCraft",
   "name": "EzCraft",
-  "description": "A Minecraft mod that makes your Minecraft experience better by making slow reaping tasks easier and faster",
-  "version": "1.0.2",
+  "description": "A Minecraft mod that makes your Minecraft experience better by making slow repeating tasks easier and faster",
+  "version": "1.1.0",
   "mcversion": "1.7.10",
   "url": "",
   "updateUrl": "",
