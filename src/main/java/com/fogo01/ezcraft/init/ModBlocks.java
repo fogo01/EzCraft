@@ -2,11 +2,12 @@ package com.fogo01.ezcraft.init;
 
 import com.fogo01.ezcraft.block.*;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.BlockContainer;
 
 public class ModBlocks {
     public static final BlockEzCraft AlOre = new BlockAlOre();
     public static final BlockEzCraft AlBlock = new BlockAlBlock();
-    public static final BlockEzCraft Turbine = new BlockTurbine();
+    public static final BlockContainer Turbine = new BlockTurbine();
     public static final BlockEzCraft MiningExplosive = new BlockMiningExplosive();
     public static final BlockEzCraft DeployableMine = new BlockDeployableMine();
     public static final BlockEzCraft MagicCarpetBlock = new BlockMagicCarpetBlock();
