@@ -1,7 +1,7 @@
 package com.fogo01.ezcraft.items;
 
 import com.fogo01.ezcraft.crativetab.CreativeTabEzCraft;
-import com.fogo01.ezcraft.reference.RefHammers;
+import com.fogo01.ezcraft.reference.Reference;
 import com.fogo01.ezcraft.reference.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPistonBase;
@@ -17,7 +17,7 @@ public class ItemDiamondHammer extends ItemPickaxe {
         super(ToolMaterial.EMERALD);
         this.setMaxStackSize(1);
         this.setTextureName("ezcraft:DiamondHammer");
-        this.setMaxDamage(RefHammers.DIAMOND_DURABILITY);
+        this.setMaxDamage(Reference.DIAMOND_DURABILITY);
         this.setCreativeTab(CreativeTabEzCraft.EzCraft_TAB);
     }
 
@@ -55,7 +55,7 @@ public class ItemDiamondHammer extends ItemPickaxe {
                                 Block block = world.getBlock(X, Y, Z);
                                 if (block != Blocks.bedrock) {
                                     if (canHarvestBlock(block, itemstack)) {
-                                        if (getDamage(itemstack) < RefHammers.DIAMOND_DURABILITY) {
+                                        if (getDamage(itemstack) < Reference.DIAMOND_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode && !world.isRemote) {
                                                 player.dropItem(getItemFromBlock(block), 1);
@@ -83,7 +83,7 @@ public class ItemDiamondHammer extends ItemPickaxe {
                                 Block block = world.getBlock(X, Y, Z);
                                 if (block != Blocks.bedrock) {
                                     if (canHarvestBlock(block, itemstack)) {
-                                        if (getDamage(itemstack) < RefHammers.DIAMOND_DURABILITY) {
+                                        if (getDamage(itemstack) < Reference.DIAMOND_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode && !world.isRemote) {
                                                 player.dropItem(getItemFromBlock(block), 1);
@@ -111,7 +111,7 @@ public class ItemDiamondHammer extends ItemPickaxe {
                                 Block block = world.getBlock(X, Y, Z);
                                 if (block != Blocks.bedrock) {
                                     if (canHarvestBlock(block, itemstack)) {
-                                        if (getDamage(itemstack) < RefHammers.DIAMOND_DURABILITY) {
+                                        if (getDamage(itemstack) < Reference.DIAMOND_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode && !world.isRemote) {
                                                 player.dropItem(getItemFromBlock(block), 1);
@@ -139,7 +139,7 @@ public class ItemDiamondHammer extends ItemPickaxe {
                                 Block block = world.getBlock(X, Y, Z);
                                 if (block != Blocks.bedrock) {
                                     if (canHarvestBlock(block, itemstack)) {
-                                        if (getDamage(itemstack) < RefHammers.DIAMOND_DURABILITY) {
+                                        if (getDamage(itemstack) < Reference.DIAMOND_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode && !world.isRemote) {
                                                 player.dropItem(getItemFromBlock(block), 1);
@@ -167,7 +167,7 @@ public class ItemDiamondHammer extends ItemPickaxe {
                                 Block block = world.getBlock(X, Y, Z);
                                 if (block != Blocks.bedrock) {
                                     if (canHarvestBlock(block, itemstack)) {
-                                        if (getDamage(itemstack) < RefHammers.DIAMOND_DURABILITY) {
+                                        if (getDamage(itemstack) < Reference.DIAMOND_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode && !world.isRemote) {
                                                 player.dropItem(getItemFromBlock(block), 1);
@@ -195,7 +195,7 @@ public class ItemDiamondHammer extends ItemPickaxe {
                                 Block block = world.getBlock(X, Y, Z);
                                 if (block != Blocks.bedrock) {
                                     if (canHarvestBlock(block, itemstack)) {
-                                        if (getDamage(itemstack) < RefHammers.DIAMOND_DURABILITY) {
+                                        if (getDamage(itemstack) < Reference.DIAMOND_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode && !world.isRemote) {
                                                 player.dropItem(getItemFromBlock(block), 1);

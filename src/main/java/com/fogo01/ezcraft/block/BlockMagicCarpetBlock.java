@@ -1,25 +1,26 @@
 package com.fogo01.ezcraft.block;
 
+import com.fogo01.ezcraft.reference.Reference;
+import com.fogo01.ezcraft.tileEntity.TileEntityMagicCarpetBlock;
+import net.minecraft.block.BlockContainer;
+import net.minecraft.block.material.Material;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockMagicCarpetBlock extends BlockEzCraft {
+public class BlockMagicCarpetBlock extends BlockContainer {
     public BlockMagicCarpetBlock() {
-        super();
+        super(Material.iron);
         this.setBlockName("MagicCarpetBlock");
+        this.setBlockTextureName(Reference.MOD_ID + ":MagicCarpetBlock");
         this.setBlockUnbreakable();
         this.setCreativeTab(null);
     }
 
     @Override
-    public int onBlockPlaced(World p_149660_1_, int p_149660_2_, int p_149660_3_, int p_149660_4_, int p_149660_5_, float p_149660_6_, float p_149660_7_, float p_149660_8_, int p_149660_9_) {
-        return super.onBlockPlaced(p_149660_1_, p_149660_2_, p_149660_3_, p_149660_4_, p_149660_5_, p_149660_6_, p_149660_7_, p_149660_8_, p_149660_9_);
-    }
-
-    @Override
-    public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_) {
-        super.updateTick(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_, p_149674_5_);
+    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
+        return new TileEntityMagicCarpetBlock();
     }
 
     public boolean isOpaqueCube() {
@@ -33,4 +34,7 @@ public class BlockMagicCarpetBlock extends BlockEzCraft {
     public boolean shouldSideBeRendered() {
         return false;
     }
+
+
+
 }

@@ -47,23 +47,22 @@ public class EzCraft {
     public void preInit(FMLPreInitializationEvent event){
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 
         ModItems.init();
         ModBlocks.init();
         OreDict.init();
         ModEntities.init();
+        ModAchievements.init();
 
         //MinecraftForgeClient.registerItemRenderer(ModItems.FlameThrower, new RenderItemFlameThrower());
         GameRegistry.registerTileEntity(TileEntityTurbine.class, "Turbine");
         GameRegistry.registerTileEntity(TileEntityBlastFurnace.class, "BlastFurnace");
         GameRegistry.registerTileEntity(TileEntityLargeChest.class, "LargeChest");
 
-        TileEntitySpecialRenderer render = new RenderTurbine();
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTurbine.class, render);
-        //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.Turbine), new RenderItemTurbine(render, new TileEntityTurbine()));
-
-        //EzProxy.registerRenderThings();
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTurbine.class, new RenderTurbine());
+        //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.Turbine), new RenderItemTurbine(new RenderTurbine(), new TileEntityTurbine()));
 
         GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 

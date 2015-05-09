@@ -154,4 +154,13 @@ public class BlockBlastfurnace extends BlockContainer {
             world.setTileEntity(x, y, z, tileEntity);
         }
     }
+
+    @Override
+    public String getUnlocalizedName() {
+        return String.format("tile.%s%s", Reference.MOD_ID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+    }
+
+    protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
+        return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+    }
 }

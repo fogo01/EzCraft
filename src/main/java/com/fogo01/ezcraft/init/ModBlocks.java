@@ -12,7 +12,7 @@ public class ModBlocks {
     public static final BlockContainer Turbine = new BlockTurbine();
     public static final BlockEzCraft MiningExplosive = new BlockMiningExplosive();
     public static final BlockEzCraft DeployableMine = new BlockDeployableMine();
-    public static final BlockEzCraft MagicCarpetBlock = new BlockMagicCarpetBlock();
+    public static final BlockContainer MagicCarpetBlock = new BlockMagicCarpetBlock();
     public static final BlockEzCraft Grinder = new BlockGrinder();
 
     public static final BlockContainer BlastFurnaceIdle = new BlockBlastfurnace(false);

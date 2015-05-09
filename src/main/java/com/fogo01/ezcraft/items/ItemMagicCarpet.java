@@ -29,6 +29,7 @@ public class ItemMagicCarpet extends ItemEzCraft {
             playerZ = playerZ -1;
         }
 
+        /*
         int X1 = playerX - 3;
         for (; X1 <= playerX + 3; X1++) {
             int Y1 = playerY -3;
@@ -44,9 +45,9 @@ public class ItemMagicCarpet extends ItemEzCraft {
                 }
             }
         }
+        */
 
         int Y = playerY - 1;
-
         int X = playerX - 1;
         for (; X <= playerX + 1; X++) {
             int Z = playerZ - 1;

@@ -19,8 +19,8 @@ public class ItemFlameThrower extends ItemEzCraft {
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
 
-        LogHelper.info(player.rotationYaw);
-        LogHelper.info(player.rotationPitch);
+        //LogHelper.info(player.rotationYaw);
+        //LogHelper.info(player.rotationPitch);
 
         float f = 0.8F;
 

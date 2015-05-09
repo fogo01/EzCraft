@@ -7,10 +7,15 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 
 public class ContainerLargeChest extends Container {
+    private TileEntityLargeChest tileEntityLargeChest;
+
     public ContainerLargeChest(InventoryPlayer inventory, TileEntityLargeChest entity) {
+        this.tileEntityLargeChest = tileEntityLargeChest;
+        //this.tileEntityLargeChest.openInventory();
+
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 13; i++) {
-                this.addSlotToContainer(new Slot(entity, j + i * 9 + 9, 8 + j * 12, 6 + i * 18));
+                this.addSlotToContainer(new Slot(entity, j + i * 9, 8 + j * 12, 6 + i * 18));
             }
         }
 

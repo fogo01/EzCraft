@@ -12,6 +12,7 @@ public class Recipies {
 	public static void init(){
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.RedstoneBolt), "TR ", "RAR", " RG", 'R', Items.redstone, 'A', Items.arrow, 'T', Blocks.tnt, 'G', Items.gunpowder);
         GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.MiningExplosive), "TTT", "TTT", "TTT", 'T', Blocks.tnt);
+        GameRegistry.addShapedRecipe(new ItemStack(ModItems.Katana), "S", "S", "D", 'S', Items.nether_star, 'D', Items.diamond);
 
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.GodlyIngot), "DDD", "GSG", "DDD", 'D', Items.diamond, 'G', Items.gold_ingot, 'S', Items.nether_star);
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.GodlySword), "G", "G", "S", 'G', ModItems.GodlyIngot, 'S', Blocks.obsidian);
