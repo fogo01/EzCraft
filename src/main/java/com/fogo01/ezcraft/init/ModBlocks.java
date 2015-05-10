@@ -14,6 +14,8 @@ public class ModBlocks {
     public static final BlockEzCraft DeployableMine = new BlockDeployableMine();
     public static final BlockContainer MagicCarpetBlock = new BlockMagicCarpetBlock();
     public static final BlockEzCraft Grinder = new BlockGrinder();
+    public static final BlockEzCraft InfiniWater = new BlockInfiniWater();
+    public static final BlockContainer Generator = new BlockGenerator();
 
     public static final BlockContainer BlastFurnaceIdle = new BlockBlastfurnace(false);
     public static final BlockContainer BlastFurnaceActive = new BlockBlastfurnace(true);
@@ -28,6 +30,8 @@ public class ModBlocks {
         GameRegistry.registerBlock(DeployableMine, "DeployableMine");
         GameRegistry.registerBlock(MagicCarpetBlock, "MagicCarpetBlock");
         GameRegistry.registerBlock(Grinder, "Grinder");
+        GameRegistry.registerBlock(InfiniWater, "InfiniWater");
+        GameRegistry.registerBlock(Generator, "Generator");
 
         GameRegistry.registerBlock(BlastFurnaceIdle, "BlastFurnaceIdle");
         GameRegistry.registerBlock(BlastFurnaceActive, "BlastFurnaceActive");

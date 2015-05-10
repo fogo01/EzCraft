@@ -34,6 +34,8 @@ tile.ezcraft:MiningExplosive.name=Mining Explosive
 tile.ezcraft:DeployableMine.name=Deployable Mine
 tile.ezcraft:MagicCarpetBlock.name=Magic Carpet Block
 tile.ezcraft:Grinder.name=Grinder
+tile.ezcraft:InfiniWater.name=Infini Water
+tile.ezcraft:Generator.name=Generator
 tile.ezcraft:BlastFurnace.name=Blast Furnace
 tile.ezcraft:LargeChest.name=Large Chest
 

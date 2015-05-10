@@ -1,20 +1,19 @@
 package com.fogo01.ezcraft.render;
 
 import com.fogo01.ezcraft.models.ModelAngelWings;
-import com.fogo01.ezcraft.models.ModelFlameThrower;
-import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.entity.RenderItem;
+import com.fogo01.ezcraft.reference.Reference;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
+public class RenderItemAngelWings implements IItemRenderer {
+    private static final ResourceLocation texture = new ResourceLocation(Reference.MOD_ID + ":textures/models/Generator.png");
 
-public class RenderItemFlameThrower implements IItemRenderer {
-    private ModelFlameThrower model;
+    private ModelAngelWings model;
 
-    public RenderItemFlameThrower() {
-        this.model = new ModelFlameThrower();
+    public RenderItemAngelWings() {
+        this.model = new ModelAngelWings();
     }
 
     @Override
@@ -28,7 +27,7 @@ public class RenderItemFlameThrower implements IItemRenderer {
     }
 
     @Override
-    public void renderItem(ItemRenderType type, ItemStack itemStack, Object... data) {
+    public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         GL11.glPushMatrix();
         //GL11.glTranslatef((float)X + 0.5F, (float)Y + 1.5F, (float)Z + 0.5F);
         GL11.glRotatef(180, 0F, 0F, 1F);
@@ -36,7 +35,7 @@ public class RenderItemFlameThrower implements IItemRenderer {
         //this.bindTexture(texture);
 
         GL11.glPushMatrix();
-        this.model.renderModel(0.0625F);
+        this.model.renderModel(0F);
         GL11.glPopMatrix();
 
         GL11.glPopMatrix();

@@ -1,20 +1,19 @@
 package com.fogo01.ezcraft.render;
 
-import com.fogo01.ezcraft.models.ModelTurbine;
+import com.fogo01.ezcraft.models.ModelGenerator;
 import com.fogo01.ezcraft.reference.Reference;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-public class RenderTurbine extends TileEntitySpecialRenderer {
+public class RenderGenerator extends TileEntitySpecialRenderer {
+    private static final ResourceLocation texture = new ResourceLocation(Reference.MOD_ID + ":textures/models/Generator.png");
 
-    private static final ResourceLocation texture = new ResourceLocation(Reference.MOD_ID + ":textures/models/Turbine.png");
+    private ModelGenerator model;
 
-    private ModelTurbine model;
-
-    public RenderTurbine() {
-        this.model = new ModelTurbine();
+    public RenderGenerator() {
+        this.model = new ModelGenerator();
     }
 
     @Override

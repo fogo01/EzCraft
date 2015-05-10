@@ -1,9 +1,8 @@
 package com.fogo01.ezcraft.block;
 
 import com.fogo01.ezcraft.EzCraft;
-import com.fogo01.ezcraft.crativetab.CreativeTabEzCraft;
 import com.fogo01.ezcraft.reference.Reference;
-import com.fogo01.ezcraft.tileEntity.TileEntityTurbine;
+import com.fogo01.ezcraft.tileEntity.TileEntityGenerator;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;
@@ -11,15 +10,12 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
-public class BlockTurbine extends BlockContainer {
-    public BlockTurbine(){
+public class BlockGenerator extends BlockContainer {
+    public BlockGenerator() {
         super(Material.rock);
-        this.setBlockName("Turbine");
+        this.setBlockName("Generator");
         this.setHardness(3.0F);
         this.setResistance(5.0F);
         this.setHarvestLevel("pickaxe", 1);
@@ -43,7 +39,7 @@ public class BlockTurbine extends BlockContainer {
 
     @Override
     public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-        return new TileEntityTurbine();
+        return new TileEntityGenerator();
     }
 
     @Override
@@ -52,18 +48,13 @@ public class BlockTurbine extends BlockContainer {
             return false;
         } else {
             if (!world.isRemote) {
-                if (world.getTileEntity(x, y, z) instanceof TileEntityTurbine) {
-                    player.openGui(EzCraft.instance, Reference.GUI_ID_TURBINE, world, x, y, z);
+                if (world.getTileEntity(x, y, z) instanceof TileEntityGenerator) {
+                    player.openGui(EzCraft.instance, Reference.GUI_ID_GENERATOR, world, x, y, z);
                 }
             }
 
             return true;
         }
-    }
-
-    @Override
-    public void updateTick(World world, int x, int y, int z, Random p_149674_5_) {
-        TileEntity tileentity = world.getTileEntity(x, y, z);
     }
 
     @Override
@@ -79,8 +70,5 @@ public class BlockTurbine extends BlockContainer {
 
     protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
-    }
-
-    public static void updateTurbineBlockState(boolean b, World worldObj, int xCoord, int yCoord, int zCoord) {
     }
 }

@@ -9,10 +9,9 @@ import com.fogo01.ezcraft.proxy.ClientProxy;
 import com.fogo01.ezcraft.proxy.CommonProxy;
 import com.fogo01.ezcraft.proxy.IProxy;
 import com.fogo01.ezcraft.reference.Reference;
-import com.fogo01.ezcraft.render.RenderItemFlameThrower;
-import com.fogo01.ezcraft.render.RenderItemTurbine;
-import com.fogo01.ezcraft.render.RenderTurbine;
+import com.fogo01.ezcraft.render.*;
 import com.fogo01.ezcraft.tileEntity.TileEntityBlastFurnace;
+import com.fogo01.ezcraft.tileEntity.TileEntityGenerator;
 import com.fogo01.ezcraft.tileEntity.TileEntityLargeChest;
 import com.fogo01.ezcraft.tileEntity.TileEntityTurbine;
 import com.fogo01.ezcraft.utility.LogHelper;
@@ -56,12 +55,15 @@ public class EzCraft {
         ModEntities.init();
         ModAchievements.init();
 
-        //MinecraftForgeClient.registerItemRenderer(ModItems.FlameThrower, new RenderItemFlameThrower());
+        MinecraftForgeClient.registerItemRenderer(ModItems.FlameThrower, new RenderItemFlameThrower());
+        //MinecraftForgeClient.registerItemRenderer(ModItems.AngelWings, new RenderItemAngelWings());
         GameRegistry.registerTileEntity(TileEntityTurbine.class, "Turbine");
+        GameRegistry.registerTileEntity(TileEntityGenerator.class, "Generator");
         GameRegistry.registerTileEntity(TileEntityBlastFurnace.class, "BlastFurnace");
         GameRegistry.registerTileEntity(TileEntityLargeChest.class, "LargeChest");
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTurbine.class, new RenderTurbine());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGenerator.class, new RenderGenerator());
         //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.Turbine), new RenderItemTurbine(new RenderTurbine(), new TileEntityTurbine()));
 
         GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);

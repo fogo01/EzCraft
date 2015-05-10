@@ -29,8 +29,9 @@ public class Reference {
 
     //Guis
     public static final int GUI_ID_TURBINE = 0;
-    public static final int GUI_ID_BLASTFURNACE = 1;
-    public static final int GUI_ID_LARGECHEST = 2;
+    public static final int GUI_ID_GENERATOR = 1;
+    public static final int GUI_ID_BLASTFURNACE = 2;
+    public static final int GUI_ID_LARGECHEST = 3;
 
     //DmgSource
     public static DamageSource DMG_Grinder = (new DamageSource("Grinder")).setDamageBypassesArmor();

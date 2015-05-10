@@ -1,6 +1,7 @@
 package com.fogo01.ezcraft.tileEntity;
 
 import com.fogo01.ezcraft.block.BlockTurbine;
+import com.fogo01.ezcraft.init.ModBlocks;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -28,40 +29,35 @@ public class TileEntityTurbine extends TileEntity implements ISidedInventory {
 
     }
 
-    public void readFromNBT(NBTTagCompound p_145839_1_) {
-        super.readFromNBT(p_145839_1_);
-        NBTTagList nbttaglist = p_145839_1_.getTagList("Items", 10);
+    public void readFromNBT(NBTTagCompound tagCompound) {
+        super.readFromNBT(tagCompound);
+        NBTTagList nbttaglist = tagCompound.getTagList("Items", 10);
         this.turbineItemStacks = new ItemStack[this.getSizeInventory()];
 
-        for (int i = 0; i < nbttaglist.tagCount(); ++i)
-        {
+        for (int i = 0; i < nbttaglist.tagCount(); ++i) {
             NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
             byte b0 = nbttagcompound1.getByte("Slot");
 
-            if (b0 >= 0 && b0 < this.turbineItemStacks.length)
-            {
+            if (b0 >= 0 && b0 < this.turbineItemStacks.length) {
                 this.turbineItemStacks[b0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
             }
         }
 
-        this.turbineBurnTime = p_145839_1_.getShort("BurnTime");
-        this.currentItemBurnTime = getItemBurnTime(this.turbineItemStacks[1]);
+        this.turbineBurnTime = tagCompound.getInteger("BurnTime");
+        this.currentItemBurnTime = getItemBurnTime(this.turbineItemStacks[0]);
 
-        if (p_145839_1_.hasKey("CustomName", 8))
-        {
-            this.localizedName = p_145839_1_.getString("CustomName");
+        if (tagCompound.hasKey("CustomName", 8)) {
+            this.localizedName = tagCompound.getString("CustomName");
         }
     }
 
-    public void writeToNBT(NBTTagCompound p_145841_1_) {
-        super.writeToNBT(p_145841_1_);
-        p_145841_1_.setShort("BurnTime", (short)this.turbineBurnTime);
+    public void writeToNBT(NBTTagCompound tagCompound) {
+        super.writeToNBT(tagCompound);
+        tagCompound.setInteger("BurnTime", this.turbineBurnTime);
         NBTTagList nbttaglist = new NBTTagList();
 
-        for (int i = 0; i < this.turbineItemStacks.length; ++i)
-        {
-            if (this.turbineItemStacks[i] != null)
-            {
+        for (int i = 0; i < this.turbineItemStacks.length; ++i) {
+            if (this.turbineItemStacks[i] != null) {
                 NBTTagCompound nbttagcompound1 = new NBTTagCompound();
                 nbttagcompound1.setByte("Slot", (byte)i);
                 this.turbineItemStacks[i].writeToNBT(nbttagcompound1);
@@ -69,11 +65,10 @@ public class TileEntityTurbine extends TileEntity implements ISidedInventory {
             }
         }
 
-        p_145841_1_.setTag("Items", nbttaglist);
+        tagCompound.setTag("Items", nbttaglist);
 
-        if (this.hasCustomInventoryName())
-        {
-            p_145841_1_.setString("CustomName", this.localizedName);
+        if (this.hasCustomInventoryName()) {
+            tagCompound.setString("CustomName", this.localizedName);
         }
     }
 
@@ -231,54 +226,34 @@ public class TileEntityTurbine extends TileEntity implements ISidedInventory {
     }
 
     private boolean canSmelt() {
-        return this.worldObj.getBlock(this.xCoord, this.yCoord-1, this.zCoord) == Blocks.water;
+        return this.worldObj.getBlock(this.xCoord, this.yCoord-1, this.zCoord) == Blocks.water || this.worldObj.getBlock(this.xCoord, this.yCoord-1, this.zCoord) == ModBlocks.InfiniWater;
     }
 
     @Override
     public void updateEntity() {
-        boolean flag = this.turbineBurnTime > 0;
+        boolean flag = this.isBurning();
         boolean flag1 = false;
 
         if (this.turbineBurnTime > 0) {
             --this.turbineBurnTime;
-            worldObj.spawnParticle("reddust", this.xCoord+0.5F, this.yCoord+1.0F, this.zCoord+0.5F, 0.0F, 1.0F, 0.0F);
+            worldObj.spawnParticle("smoke", this.xCoord+0.5F, this.yCoord+1.0F, this.zCoord+0.5F, 0.0F, 0.0F, 0.0F);
         }
 
         if (!this.worldObj.isRemote) {
-            if (this.turbineBurnTime != 0 || this.turbineItemStacks[0] != null) {
-                if (this.turbineBurnTime == 0 && this.canSmelt()) {
-                    this.currentItemBurnTime = this.turbineBurnTime = getItemBurnTime(this.turbineItemStacks[0]);
+            if (this.turbineBurnTime == 0 && this.canSmelt()) {
+                this.currentItemBurnTime = this.turbineBurnTime = getItemBurnTime(this.turbineItemStacks[0]);
 
-                    if (this.turbineBurnTime > 0) {
-                        flag1 = true;
+                if (this.turbineBurnTime > 0) {
+                    flag1 = true;
 
-                        if (this.turbineItemStacks[0] != null) {
-                            --this.turbineItemStacks[0].stackSize;
+                    if (this.turbineItemStacks[0] != null) {
+                        --this.turbineItemStacks[0].stackSize;
 
-                            if (this.turbineItemStacks[0].stackSize == 0) {
-                                this.turbineItemStacks[0] = turbineItemStacks[0].getItem().getContainerItem(turbineItemStacks[0]);
-                            }
+                        if (this.turbineItemStacks[0].stackSize == 0) {
+                            this.turbineItemStacks[0] = turbineItemStacks[0].getItem().getContainerItem(turbineItemStacks[0]);
                         }
                     }
                 }
-
-                /*
-                if (this.isBurning() && this.canSmelt())
-                {
-                    ++this.turbineCookTime;
-
-                    if (this.turbineCookTime == 200)
-                    {
-                        this.turbineCookTime = 0;
-                        this.smeltItem();
-                        flag1 = true;
-                    }
-                }
-                else
-                {
-                    this.turbineCookTime = 0;
-                }
-                */
             }
 
             if (flag != this.turbineBurnTime > 0) {
