@@ -5,7 +5,7 @@ import com.fogo01.ezcraft.client.gui.GuiGenerator;
 import com.fogo01.ezcraft.client.gui.GuiLargeChest;
 import com.fogo01.ezcraft.client.gui.GuiTurbine;
 import com.fogo01.ezcraft.container.ContainerBlastFurnace;
-import com.fogo01.ezcraft.container.ContainerGenerator;
+import com.fogo01.ezcraft.container.inventory.ContainerGenerator;
 import com.fogo01.ezcraft.container.ContainerLargeChest;
 import com.fogo01.ezcraft.container.ContainerTurbine;
 import com.fogo01.ezcraft.reference.Reference;

@@ -5,6 +5,7 @@ import com.fogo01.ezcraft.genaration.BlockGeneration;
 import com.fogo01.ezcraft.handler.GuiHandler;
 import com.fogo01.ezcraft.init.*;
 import com.fogo01.ezcraft.items.ItemFlameThrower;
+import com.fogo01.ezcraft.models.ModelTurbine;
 import com.fogo01.ezcraft.proxy.ClientProxy;
 import com.fogo01.ezcraft.proxy.CommonProxy;
 import com.fogo01.ezcraft.proxy.IProxy;
@@ -64,7 +65,7 @@ public class EzCraft {
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTurbine.class, new RenderTurbine());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGenerator.class, new RenderGenerator());
-        //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.Turbine), new RenderItemTurbine(new RenderTurbine(), new TileEntityTurbine()));
+        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.Turbine), new RenderItemTurbine());
 
         GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 

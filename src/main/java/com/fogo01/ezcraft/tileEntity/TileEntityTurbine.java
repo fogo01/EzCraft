@@ -23,6 +23,7 @@ public class TileEntityTurbine extends TileEntity implements ISidedInventory {
     private ItemStack[] turbineItemStacks = new ItemStack[1];
     public int turbineBurnTime;
     public int currentItemBurnTime;
+    public int steamGen = 10;
     private String localizedName;
 
     public TileEntityTurbine() {

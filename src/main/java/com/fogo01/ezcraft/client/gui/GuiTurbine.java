@@ -24,7 +24,7 @@ public class GuiTurbine extends GuiContainer {
         String name = this.tileEntityTurbine.hasCustomInventoryName() ? this.tileEntityTurbine.getInventoryName() : I18n.format(this.tileEntityTurbine.getInventoryName(), new Object[0]);
 
         this.fontRendererObj.drawString(name, this.xSize / 2 -this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-        this.fontRendererObj.drawString(I18n.format("Container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 4210752);
+        this.fontRendererObj.drawString(I18n.format("Container.Inventory", new Object[0]), 8, this.ySize - 96 + 2, 4210752);
     }
 
     @Override

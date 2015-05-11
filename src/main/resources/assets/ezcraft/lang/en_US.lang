@@ -39,8 +39,9 @@ tile.ezcraft:Generator.name=Generator
 tile.ezcraft:BlastFurnace.name=Blast Furnace
 tile.ezcraft:LargeChest.name=Large Chest
 
-Container.inventory=Inventory
+Container.Inventory=Inventory
 Container.Turbine=Turbine
+Container.Generator=Generator
 
 achievement.RickRoll=Rick Roll
 achievement.RickRoll.desc=You just got Rick Rolled!

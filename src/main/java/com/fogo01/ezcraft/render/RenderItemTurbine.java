@@ -1,5 +1,7 @@
 package com.fogo01.ezcraft.render;
 
+import com.fogo01.ezcraft.models.ModelFlameThrower;
+import com.fogo01.ezcraft.models.ModelTurbine;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -7,18 +9,15 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 public class RenderItemTurbine implements IItemRenderer {
+    private ModelTurbine model;
 
-    TileEntitySpecialRenderer renderer;
-    private TileEntity entity;
-
-    public RenderItemTurbine(TileEntitySpecialRenderer render, TileEntity entity) {
-        this.entity = entity;
-        this.renderer = render;
+    public RenderItemTurbine() {
+        this.model = new ModelTurbine();
     }
 
     @Override
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-        return true;
+        return type == ItemRenderType.EQUIPPED_FIRST_PERSON;
     }
 
     @Override
@@ -28,9 +27,16 @@ public class RenderItemTurbine implements IItemRenderer {
 
     @Override
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
-        if (type == ItemRenderType.ENTITY) {
-            GL11.glTranslatef(-0.5F, 0.0F, -0.5F);
-            this.renderer.renderTileEntityAt(this.entity, 0.0D, 0.0D, 0.0D, 0.0F);
-        }
+        GL11.glPushMatrix();
+        //GL11.glTranslatef((float)X + 0.5F, (float)Y + 1.5F, (float)Z + 0.5F);
+        GL11.glRotatef(180, 0F, 1F, 0F);
+
+        //this.bindTexture(texture);
+
+        GL11.glPushMatrix();
+        this.model.renderModel(0.0625F);
+        GL11.glPopMatrix();
+
+        GL11.glPopMatrix();
     }
 }

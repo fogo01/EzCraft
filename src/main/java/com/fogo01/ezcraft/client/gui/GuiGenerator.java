@@ -1,6 +1,6 @@
 package com.fogo01.ezcraft.client.gui;
 
-import com.fogo01.ezcraft.container.ContainerGenerator;
+import com.fogo01.ezcraft.container.inventory.ContainerGenerator;
 import com.fogo01.ezcraft.reference.Reference;
 import com.fogo01.ezcraft.tileEntity.TileEntityGenerator;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -22,9 +22,9 @@ public class GuiGenerator extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int par1, int par2) {
         String name = this.tileEntityGenerator.hasCustomInventoryName() ? this.tileEntityGenerator.getInventoryName() : I18n.format(this.tileEntityGenerator.getInventoryName(), new Object[0]);
-
         this.fontRendererObj.drawString(name, this.xSize / 2 -this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-        this.fontRendererObj.drawString(I18n.format("Container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 4210752);
+        name = I18n.format("Container.Inventory", new Object[0]);
+        this.fontRendererObj.drawString(name, this.xSize / 2 -this.fontRendererObj.getStringWidth(name) / 2, this.ySize - 96 + 2, 4210752);
     }
 
     @Override
@@ -35,11 +35,10 @@ public class GuiGenerator extends GuiContainer {
         int l = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
 
-        /*
-        if (this.tileEntityGenerator.isBurning()) {
-            int i1 = this.tileEntityGenerator.getBurnTimeRemainingScaled(13);
-            this.drawTexturedModalRect(k + 80, l + 47 + 14 - i1, 176, 12 - i1, 14, i1 + 1);
-        }
-        */
+        int i1 = this.tileEntityGenerator.getEnergyAmountScaled(100);
+        this.drawTexturedModalRect(k + 37, l + 39, 99 - i1, 166, i1 + 1, 10);
+        i1 = this.tileEntityGenerator.getSteamAmountScaled(40);
+        this.drawTexturedModalRect(k + 155, l + 17 + 39 - i1, 186, 39 - i1, 10, i1 + 1);
+
     }
 }

@@ -1,10 +1,8 @@
 package com.fogo01.ezcraft.reference;
 
 import com.fogo01.ezcraft.init.ModItems;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemRecord;
-import net.minecraft.stats.Achievement;
-import net.minecraft.stats.AchievementList;
+import com.fogo01.ezcraft.items.ItemEzCraft;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 
 public class Reference {
@@ -36,4 +34,6 @@ public class Reference {
     //DmgSource
     public static DamageSource DMG_Grinder = (new DamageSource("Grinder")).setDamageBypassesArmor();
     public static DamageSource DMG_Katana = (new DamageSource("Katana")).setDamageBypassesArmor().setDamageAllowedInCreativeMode();
+
+    //public static ItemStack[] chargeable = new ItemEzCraft[]{ModItems.Railgun};
 }

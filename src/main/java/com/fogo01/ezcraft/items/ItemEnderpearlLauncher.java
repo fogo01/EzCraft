@@ -11,6 +11,7 @@ public class ItemEnderpearlLauncher extends ItemEzCraft {
     public ItemEnderpearlLauncher(){
         super();
         this.setUnlocalizedName("EnderpearlLauncher");
+        this.setMaxDamage(10240);
     }
 
     @Override
@@ -25,16 +26,18 @@ public class ItemEnderpearlLauncher extends ItemEzCraft {
         float Z = MathHelper.cos(yaw / 180.0F * (float)Math.PI) * MathHelper.cos((float)pitch / 180.0F * (float)Math.PI) * f;
 
         if (player.capabilities.isCreativeMode || player.inventory.hasItem(Items.ender_pearl)) {
-            EntityEnderPearl entityEnderPearl = new EntityEnderPearl(world, player);
-            entityEnderPearl.setVelocity(X, Y, Z);
+            if (itemStack.getItemDamage() < itemStack.getMaxDamage() - 100) {
+                EntityEnderPearl entityEnderPearl = new EntityEnderPearl(world, player);
+                entityEnderPearl.setVelocity(X, Y, Z);
 
-            if (!player.capabilities.isCreativeMode) {
-                player.inventory.consumeInventoryItem(Items.ender_pearl);
-                itemStack.damageItem(1, player);
-            }
+                if (!player.capabilities.isCreativeMode) {
+                    player.inventory.consumeInventoryItem(Items.ender_pearl);
+                    itemStack.damageItem(100, player);
+                }
 
-            if (!world.isRemote) {
-                world.spawnEntityInWorld(entityEnderPearl);
+                if (!world.isRemote) {
+                    world.spawnEntityInWorld(entityEnderPearl);
+                }
             }
         }
 
