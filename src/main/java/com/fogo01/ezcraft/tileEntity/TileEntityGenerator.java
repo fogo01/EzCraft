@@ -1,7 +1,6 @@
 package com.fogo01.ezcraft.tileEntity;
 
-import com.fogo01.ezcraft.init.ModItems;
-import com.fogo01.ezcraft.utility.LogHelper;
+import com.fogo01.ezcraft.reference.Reference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -189,7 +188,7 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
     }
 
     public boolean canCharge(ItemStack itemStack) {
-        if (this.energyAmount > 0 && this.generatorItemStacks[1] != null && isItemChargeable(itemStack)) {
+        if (this.energyAmount > 0 && isItemChargeable(itemStack)) {
             return true;
         }
         return false;
@@ -197,8 +196,10 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
 
     public boolean isItemChargeable(ItemStack itemStack) {
         if (itemStack != null) {
-            if (itemStack.isItemDamaged()) {
-                if (itemStack == new ItemStack(ModItems.Railgun) || itemStack == new ItemStack(ModItems.EnderPearlLuancher)) {
+            for (int i = 0; i < Reference.chargeable.length; i++) {
+                ItemStack item = Reference.chargeable[i];
+                item.setItemDamage(itemStack.getItemDamage());
+                if (itemStack.isItemEqual(item)) {
                     return true;
                 }
             }
@@ -229,15 +230,12 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
             }
 
             if (this.generatorItemStacks[0] != null) {
-                int itemDmg = this.generatorItemStacks[0].getItemDamage();
-                this.generatorItemStacks[0].setItemDamage(itemDmg - 1);
-                this.energyAmount -= 1;
-            }
-
-            if (this.canCharge(this.generatorItemStacks[0])) {
-                int itemDmg = this.generatorItemStacks[0].getItemDamage();
-                //this.generatorItemStacks[0].setItemDamage(itemDmg - 1);
-                this.energyAmount -= 1;
+                if (canCharge(this.generatorItemStacks[0])) {
+                    int itemDmg = this.generatorItemStacks[0].getItemDamage();
+                    this.generatorItemStacks[0].setItemDamage(itemDmg - 1);
+                    this.energyAmount -= 1;
+                    flag1 = true;
+                }
             }
 
             if (this.steamAmount > 0) {

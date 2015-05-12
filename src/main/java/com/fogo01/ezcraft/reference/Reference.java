@@ -35,5 +35,5 @@ public class Reference {
     public static DamageSource DMG_Grinder = (new DamageSource("Grinder")).setDamageBypassesArmor();
     public static DamageSource DMG_Katana = (new DamageSource("Katana")).setDamageBypassesArmor().setDamageAllowedInCreativeMode();
 
-    //public static ItemStack[] chargeable = new ItemEzCraft[]{ModItems.Railgun};
+    public static ItemStack[] chargeable = new ItemStack[]{new ItemStack(ModItems.Railgun), new ItemStack(ModItems.EnderPearlLuancher)};
 }
