@@ -1,7 +1,6 @@
 package com.fogo01.ezcraft.reference;
 
 import com.fogo01.ezcraft.init.ModItems;
-import com.fogo01.ezcraft.items.ItemEzCraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 
@@ -14,7 +13,22 @@ public class Reference {
     public static final String GUI_FACTORY_CLASS = "com.fogo01.ezcraft.client.gui.GuiFactory";
 
 
-    //------Hammers-------
+    //========GUIS==========
+    public static final int GUI_ID_TURBINE = 0;
+    public static final int GUI_ID_GENERATOR = 1;
+    public static final int GUI_ID_GEARBOX = 2;
+    public static final int GUI_ID_BLASTFURNACE = 3;
+    public static final int GUI_ID_LARGECHEST = 4;
+
+
+    //DmgSource
+    public static DamageSource DMG_MobGrinder = (new DamageSource("Grinder")).setDamageBypassesArmor();
+    public static DamageSource DMG_Katana = (new DamageSource("Katana")).setDamageBypassesArmor().setDamageAllowedInCreativeMode();
+
+    public static ItemStack[] chargeable = new ItemStack[]{new ItemStack(ModItems.Railgun), new ItemStack(ModItems.EnderPearlLuancher), new ItemStack(ModItems.ItemMagnet)};
+
+
+    //========Hammers==========
     //Stone
     public static final int STONE_DURABILITY = 250;
 
@@ -23,17 +37,4 @@ public class Reference {
 
     //DIAMOND
     public static final  int DIAMOND_DURABILITY = 5000;
-
-
-    //Guis
-    public static final int GUI_ID_TURBINE = 0;
-    public static final int GUI_ID_GENERATOR = 1;
-    public static final int GUI_ID_BLASTFURNACE = 2;
-    public static final int GUI_ID_LARGECHEST = 3;
-
-    //DmgSource
-    public static DamageSource DMG_Grinder = (new DamageSource("Grinder")).setDamageBypassesArmor();
-    public static DamageSource DMG_Katana = (new DamageSource("Katana")).setDamageBypassesArmor().setDamageAllowedInCreativeMode();
-
-    public static ItemStack[] chargeable = new ItemStack[]{new ItemStack(ModItems.Railgun), new ItemStack(ModItems.EnderPearlLuancher)};
 }

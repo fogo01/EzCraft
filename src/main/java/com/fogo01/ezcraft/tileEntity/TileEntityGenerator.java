@@ -15,9 +15,8 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
     private ItemStack[] generatorItemStacks = new ItemStack[2];
     public int energyAmount;
     private int maxEnergy = 1000000;
-    public int steamAmount;
-    private int maxSteam = 8000;
-    private int steamUsage = 4;
+    public int itemEnergyAmount = 1;
+    private int maxItemEnergy = 1;
     private String localizedName;
     private TileEntity tileEntity;
     private TileEntityTurbine tileEntityTurbine;
@@ -38,7 +37,8 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
         }
 
         this.energyAmount = tagCompound.getInteger("energyAmount");
-        this.steamAmount = tagCompound.getInteger("steamAmount");
+        this.itemEnergyAmount = tagCompound.getInteger("itemEnergyAmount");
+        this.maxItemEnergy = tagCompound.getInteger("maxItemEnergy");
 
         if (tagCompound.hasKey("CustomName", 8)) {
             this.localizedName = tagCompound.getString("CustomName");
@@ -48,7 +48,9 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
     public void writeToNBT(NBTTagCompound tagCompound) {
         super.writeToNBT(tagCompound);
         tagCompound.setInteger("energyAmount", this.energyAmount);
-        tagCompound.setInteger("steamAmount", this.steamAmount);
+        tagCompound.setInteger("itemEnergyAmount", this.itemEnergyAmount);
+        tagCompound.setInteger("maxItemEnergy", this.maxItemEnergy);
+
         NBTTagList nbttaglist = new NBTTagList();
 
         for (int i = 0; i < this.generatorItemStacks.length; ++i) {
@@ -184,14 +186,11 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
     }
 
     public boolean isGenerating() {
-        return this.steamAmount > 0;
+        return this.tileEntityTurbine.isBurning();
     }
 
     public boolean canCharge(ItemStack itemStack) {
-        if (this.energyAmount > 0 && isItemChargeable(itemStack)) {
-            return true;
-        }
-        return false;
+        return this.energyAmount > 0 && isItemChargeable(itemStack);
     }
 
     public boolean isItemChargeable(ItemStack itemStack) {
@@ -209,7 +208,7 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
 
     @Override
     public void updateEntity() {
-        boolean flag = this.isGenerating();
+        //boolean flag = this.isGenerating();
         boolean flag1 = false;
         this.tileEntity = this.worldObj.getTileEntity(this.xCoord, this.yCoord-1, this.zCoord);
 
@@ -217,34 +216,38 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
             if (this.tileEntity instanceof TileEntityTurbine) {
                 this.tileEntityTurbine = (TileEntityTurbine) this.tileEntity;
 
-                if (this.tileEntityTurbine.isBurning() && this.steamAmount < this.maxSteam - this.tileEntityTurbine.steamGen) {
-                    this.steamAmount += this.tileEntityTurbine.steamGen;
-                }
-            }
-
-            if (this.steamAmount > 0) {
-                this.steamAmount -= steamUsage;
-                if (energyAmount < maxEnergy) {
+                if (this.tileEntityTurbine.isBurning() &&energyAmount < maxEnergy - this.energyProduction) {
                     this.energyAmount += this.energyProduction;
-                }
-            }
-
-            if (this.generatorItemStacks[0] != null) {
-                if (canCharge(this.generatorItemStacks[0])) {
-                    int itemDmg = this.generatorItemStacks[0].getItemDamage();
-                    this.generatorItemStacks[0].setItemDamage(itemDmg - 1);
-                    this.energyAmount -= 1;
                     flag1 = true;
                 }
             }
 
-            if (this.steamAmount > 0) {
+            this.itemEnergyAmount = 1;
+            this.maxItemEnergy = 2;
+            if (this.generatorItemStacks[0] != null) {
+                if (canCharge(this.generatorItemStacks[0])) {
+                    if (this.energyAmount > 0) {
+                        int itemDmg = this.generatorItemStacks[0].getItemDamage();
+                        this.generatorItemStacks[0].setItemDamage(itemDmg - 1);
+                        this.energyAmount -= 1;
+
+                        this.itemEnergyAmount = this.generatorItemStacks[0].getItemDamage();
+                        this.maxItemEnergy = this.generatorItemStacks[0].getMaxDamage();
+
+                        flag1 = true;
+                    }
+                }
+            }
+
+            /*
+            if (this.itemEnergyAmount > 0) {
                 flag1 = true;
             }
 
-            if (flag != this.steamAmount > 0) {
+            if (flag != this.itemEnergyAmount > 0) {
                 flag1 = true;
             }
+            */
         }
 
         if (flag1) {
@@ -256,7 +259,7 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
         return this.energyAmount * i / this.maxEnergy;
     }
 
-    public int getSteamAmountScaled(int i) {
-        return this.steamAmount * i / this.maxSteam;
+    public int getItemEnergyAmountScaled(int i) {
+        return this.itemEnergyAmount * i / this.maxItemEnergy;
     }
 }

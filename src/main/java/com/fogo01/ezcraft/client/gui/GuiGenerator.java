@@ -24,7 +24,7 @@ public class GuiGenerator extends GuiContainer {
         String name = this.tileEntityGenerator.hasCustomInventoryName() ? this.tileEntityGenerator.getInventoryName() : I18n.format(this.tileEntityGenerator.getInventoryName(), new Object[0]);
         this.fontRendererObj.drawString(name, this.xSize / 2 -this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
         name = I18n.format("Container.Inventory", new Object[0]);
-        this.fontRendererObj.drawString(name, this.xSize / 2 -this.fontRendererObj.getStringWidth(name) / 2, this.ySize - 96 + 2, 4210752);
+        this.fontRendererObj.drawString(name, 8, this.ySize - 96 + 2, 4210752);
     }
 
     @Override
@@ -37,7 +37,8 @@ public class GuiGenerator extends GuiContainer {
 
         int i1 = this.tileEntityGenerator.getEnergyAmountScaled(100);
         this.drawTexturedModalRect(k + 37, l + 39, 99 - i1, 166, i1 + 1, 10);
-        i1 = this.tileEntityGenerator.getSteamAmountScaled(40);
+
+        i1 = this.tileEntityGenerator.getItemEnergyAmountScaled(40);
         this.drawTexturedModalRect(k + 155, l + 17 + 39 - i1, 186, 39 - i1, 10, i1 + 1);
 
     }

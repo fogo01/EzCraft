@@ -1,20 +1,12 @@
 package com.fogo01.ezcraft;
 
-import com.fogo01.ezcraft.handler.ConfigurationHandler;
 import com.fogo01.ezcraft.genaration.BlockGeneration;
+import com.fogo01.ezcraft.handler.ConfigurationHandler;
 import com.fogo01.ezcraft.handler.GuiHandler;
 import com.fogo01.ezcraft.init.*;
-import com.fogo01.ezcraft.items.ItemFlameThrower;
-import com.fogo01.ezcraft.models.ModelTurbine;
 import com.fogo01.ezcraft.proxy.ClientProxy;
 import com.fogo01.ezcraft.proxy.CommonProxy;
-import com.fogo01.ezcraft.proxy.IProxy;
 import com.fogo01.ezcraft.reference.Reference;
-import com.fogo01.ezcraft.render.*;
-import com.fogo01.ezcraft.tileEntity.TileEntityBlastFurnace;
-import com.fogo01.ezcraft.tileEntity.TileEntityGenerator;
-import com.fogo01.ezcraft.tileEntity.TileEntityLargeChest;
-import com.fogo01.ezcraft.tileEntity.TileEntityTurbine;
 import com.fogo01.ezcraft.utility.LogHelper;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -35,19 +27,17 @@ public class EzCraft {
     BlockGeneration eventWorldGen = new BlockGeneration();
 
     @Mod.Instance(Reference.MOD_ID)
-    public static EzCraft instance;
+    public static com.fogo01.ezcraft.EzCraft instance;
 
     @SidedProxy(clientSide=Reference.CLIENT_PROXY_CLASS, serverSide=Reference.SERVER_PROXY_CLASS)
-    public static IProxy proxy;
-    public static CommonProxy EzProxy;
-
+    public static CommonProxy Common_Proxy;
+    public static ClientProxy Client_proxy;
 
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event){
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
-
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 
         ModItems.init();
@@ -56,16 +46,8 @@ public class EzCraft {
         ModEntities.init();
         ModAchievements.init();
 
-        MinecraftForgeClient.registerItemRenderer(ModItems.FlameThrower, new RenderItemFlameThrower());
-        //MinecraftForgeClient.registerItemRenderer(ModItems.AngelWings, new RenderItemAngelWings());
-        GameRegistry.registerTileEntity(TileEntityTurbine.class, "Turbine");
-        GameRegistry.registerTileEntity(TileEntityGenerator.class, "Generator");
-        GameRegistry.registerTileEntity(TileEntityBlastFurnace.class, "BlastFurnace");
-        GameRegistry.registerTileEntity(TileEntityLargeChest.class, "LargeChest");
-
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTurbine.class, new RenderTurbine());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGenerator.class, new RenderGenerator());
-        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.Turbine), new RenderItemTurbine());
+        Client_proxy.registerRenderThings();
+        Client_proxy.registerTileEntitySpecialRender();
 
         GameRegistry.registerWorldGenerator(this.eventWorldGen, 0);
 

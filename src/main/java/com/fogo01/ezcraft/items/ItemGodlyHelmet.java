@@ -4,6 +4,7 @@ import com.fogo01.ezcraft.crativetab.CreativeTabEzCraft;
 import com.fogo01.ezcraft.init.ModItems;
 import com.fogo01.ezcraft.reference.RefMaterials;
 import com.fogo01.ezcraft.reference.Reference;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -26,6 +27,11 @@ public class ItemGodlyHelmet extends ItemArmor {
             player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 20, 9));
             player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 20, 9));
         }
+    }
+
+    @Override
+    public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+        return Reference.MOD_ID + ":textures/models/armor/godly_layer2.png";
     }
 
     @Override

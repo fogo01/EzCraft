@@ -16,6 +16,8 @@ public class ModItems {
     public static final ItemEzCraft FlameThrower = new ItemFlameThrower();
     public static final ItemEzCraft FuelTank = new ItemFuelTank();
     public static final ItemEzCraft Katana = new ItemKatana();
+    public static final ItemEzCraft SpawnerWrench = new ItemSpawnerWrench();
+    public static final ItemEzCraft ItemMagnet = new ItemItemMagnet();
 
     public static final ItemPickaxe IronHammer = new ItemIronHammer();
     public static final ItemPickaxe DiamondHammer = new ItemDiamondHammer();
@@ -47,6 +49,8 @@ public class ModItems {
         GameRegistry.registerItem(FlameThrower, "FlameThrower");
         GameRegistry.registerItem(FuelTank, "FuelTank");
         GameRegistry.registerItem(Katana, "Katana");
+        GameRegistry.registerItem(SpawnerWrench, "SpawnerWrench");
+        GameRegistry.registerItem(ItemMagnet, "ItemMagnet");
 
         GameRegistry.registerItem(GodlyIngot, "GodlyIngot");
         GameRegistry.registerItem(GodlySword, "GodlySword");

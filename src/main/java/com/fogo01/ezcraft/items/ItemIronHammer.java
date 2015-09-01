@@ -5,10 +5,12 @@ import com.fogo01.ezcraft.reference.Reference;
 import com.fogo01.ezcraft.reference.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPistonBase;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class ItemIronHammer extends ItemPickaxe {
@@ -25,7 +27,7 @@ public class ItemIronHammer extends ItemPickaxe {
         World world = player.getEntityWorld();
         Block b = world.getBlock(blockX, blockY, blockZ);
         if(canHarvestBlock(b, itemstack) && !player.isSneaking()) {
-            int l = BlockPistonBase.determineOrientation(world, blockX, blockY, blockZ, player);
+            int l = determineOrientation(world, blockX, blockY, blockZ, player);
 
             int X;
             int Y;
@@ -198,6 +200,23 @@ public class ItemIronHammer extends ItemPickaxe {
 
         }
         return false;
+    }
+
+    public static int determineOrientation(World p_150071_0_, int p_150071_1_, int p_150071_2_, int p_150071_3_, EntityLivingBase p_150071_4_) {
+        if (MathHelper.abs((float) p_150071_4_.posX - (float) p_150071_1_) < 2.0F && MathHelper.abs((float)p_150071_4_.posZ - (float)p_150071_3_) < 2.0F) {
+            double d0 = p_150071_4_.posY + 1.82D - (double)p_150071_4_.yOffset;
+
+            if (d0 - (double)p_150071_2_ > 2.0D) {
+                return 1;
+            }
+
+            if ((double)p_150071_2_ - d0 > 0.0D) {
+                return 0;
+            }
+        }
+
+        int l = MathHelper.floor_double((double)(p_150071_4_.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+        return l == 0 ? 2 : (l == 1 ? 5 : (l == 2 ? 3 : (l == 3 ? 4 : 0)));
     }
 
     @Override

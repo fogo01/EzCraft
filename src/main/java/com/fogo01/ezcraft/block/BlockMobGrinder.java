@@ -5,10 +5,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 
-public class BlockGrinder extends BlockEzCraft {
-    public BlockGrinder(){
+public class BlockMobGrinder extends BlockEzCraft {
+    public BlockMobGrinder(){
         super();
-        this.setBlockName("Grinder");
+        this.setBlockName("MobGrinder");
         this.setHardness(3.0F);
         this.setResistance(5.0F);
         this.setHarvestLevel("pickaxe", 1);
@@ -34,10 +34,8 @@ public class BlockGrinder extends BlockEzCraft {
     @Override
     public void onEntityCollidedWithBlock(World world, int X, int Y, int Z, Entity entity) {
         if (entity instanceof EntityLivingBase ) {
-            if (entity.canBeCollidedWith()) {
-                if (((EntityLivingBase) entity).getHealth() > 1) {
-                    entity.attackEntityFrom(Reference.DMG_Grinder, 1.0F);
-                }
+            if (((EntityLivingBase) entity).getHealth() > 1) {
+                entity.attackEntityFrom(Reference.DMG_MobGrinder, 1.0F);
             }
         }
     }

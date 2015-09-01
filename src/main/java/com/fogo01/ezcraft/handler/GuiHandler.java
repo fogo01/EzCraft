@@ -1,18 +1,13 @@
 package com.fogo01.ezcraft.handler;
 
-import com.fogo01.ezcraft.client.gui.GuiBlastFurnace;
-import com.fogo01.ezcraft.client.gui.GuiGenerator;
-import com.fogo01.ezcraft.client.gui.GuiLargeChest;
-import com.fogo01.ezcraft.client.gui.GuiTurbine;
+import com.fogo01.ezcraft.client.gui.*;
 import com.fogo01.ezcraft.container.ContainerBlastFurnace;
+import com.fogo01.ezcraft.container.inventory.ContainerGearBox;
 import com.fogo01.ezcraft.container.inventory.ContainerGenerator;
 import com.fogo01.ezcraft.container.ContainerLargeChest;
 import com.fogo01.ezcraft.container.ContainerTurbine;
 import com.fogo01.ezcraft.reference.Reference;
-import com.fogo01.ezcraft.tileEntity.TileEntityBlastFurnace;
-import com.fogo01.ezcraft.tileEntity.TileEntityGenerator;
-import com.fogo01.ezcraft.tileEntity.TileEntityLargeChest;
-import com.fogo01.ezcraft.tileEntity.TileEntityTurbine;
+import com.fogo01.ezcraft.tileEntity.*;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -35,6 +30,12 @@ public class GuiHandler implements IGuiHandler {
                 case Reference.GUI_ID_GENERATOR:
                     if (entity instanceof TileEntityGenerator) {
                         return new ContainerGenerator(player.inventory, (TileEntityGenerator) entity);
+                    }
+                    return null;
+
+                case Reference.GUI_ID_GEARBOX:
+                    if (entity instanceof TileEntityGearBox) {
+                        return new ContainerGearBox(player.inventory, (TileEntityGearBox) entity);
                     }
                     return null;
 
@@ -69,6 +70,12 @@ public class GuiHandler implements IGuiHandler {
                 case Reference.GUI_ID_GENERATOR:
                     if (entity instanceof TileEntityGenerator) {
                         return new GuiGenerator(player.inventory, (TileEntityGenerator) entity);
+                    }
+                    return null;
+
+                case Reference.GUI_ID_GEARBOX:
+                    if (entity instanceof TileEntityGearBox) {
+                        return new GuiGearBox(player.inventory, (TileEntityGearBox) entity);
                     }
                     return null;
 

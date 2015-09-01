@@ -29,6 +29,11 @@ public class ItemGodlyBoots extends ItemArmor {
     }
 
     @Override
+    public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+        return Reference.MOD_ID + ":textures/models/armor/godly_layer2.png";
+    }
+
+    @Override
     public String getUnlocalizedName() {
         return String.format("item.%s%s", Reference.MOD_ID.toLowerCase() + ":", "GodlyBoots");
     }
