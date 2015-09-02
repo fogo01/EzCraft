@@ -54,6 +54,11 @@ public class ItemItemMagnet extends ItemEzCraft {
 
     @Override
     public void onUpdate(ItemStack itemStack, World world, Entity entity, int p_77663_4_, boolean p_77663_5_) {
+        EntityPlayer player = null;
+        if (entity instanceof EntityPlayer) {
+            player = (EntityPlayer)entity;
+        }
+
         if (this.active) {
             LogHelper.info("ACTIVE");
             double playerX = entity.posX;
@@ -75,7 +80,7 @@ public class ItemItemMagnet extends ItemEzCraft {
                 item.addVelocity(X * f, Y * f, Z * f);
             }
 
-            if (items.size() > 0) {
+            if (items.size() > 0 && !player.capabilities.isCreativeMode) {
                 itemStack.setItemDamage(itemStack.getItemDamage() + 1);
             }
         }

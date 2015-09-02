@@ -1,5 +1,6 @@
 package com.fogo01.ezcraft.block;
 
+import com.fogo01.ezcraft.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -170,11 +171,11 @@ public class BlockEnergyCable extends BlockEzCraft {
     }
 
     /**
-     * Returns true if the specified block can be connected by a fence
+     * Returns true if the specified block can be connected
      */
     public boolean canConnectCableTo(IBlockAccess p_149826_1_, int p_149826_2_, int p_149826_3_, int p_149826_4_)
     {
         Block block = p_149826_1_.getBlock(p_149826_2_, p_149826_3_, p_149826_4_);
-        return block == this;
+        return block == this || block == ModBlocks.Generator;
     }
 }

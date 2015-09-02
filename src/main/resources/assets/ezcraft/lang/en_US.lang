@@ -12,6 +12,10 @@ item.ezcraft:MagicCarpet.name=Magic Carpet
 item.ezcraft:FlameThrower.name=Flame Thrower
 item.ezcraft:FuelTank.name=Fuel Tank
 item.ezcraft:Katana.name=Katana
+item.ezcraft:ItemMagnet.name=Item Magnet
+item.ezcraft:AluminumRod.name=Aluminum Rod
+item.ezcraft:AluminumBlade.name=Aluminum Blade
+item.ezcraft:Coil.name=Coil
 
 item.ezcraft:GodlyIngot.name=Godly Ingot
 item.ezcraft:GodlySword.name=Godly Sword

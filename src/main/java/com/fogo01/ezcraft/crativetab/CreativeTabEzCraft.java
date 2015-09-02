@@ -8,9 +8,10 @@ import net.minecraft.item.Item;
 
 public class CreativeTabEzCraft {
 	public static final CreativeTabs EzCraft_TAB = new CreativeTabs(Reference.MOD_ID.toLowerCase()) {
+
 		@Override
 		public Item getTabIconItem() {
-			return ModItems.Hammer;
+			return ModItems.ChunkHammer;
 		}
 	};
 }

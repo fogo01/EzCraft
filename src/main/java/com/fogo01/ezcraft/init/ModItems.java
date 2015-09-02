@@ -6,7 +6,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.*;
 
 public class ModItems {
-    public static final ItemEzCraft Hammer = new ItemHammer();
     public static final ItemEzCraft ChunkHammer = new ItemChunkHammer();
     public static final ItemEzCraft AlIngot = new ItemAlIngot();
     public static final ItemEzCraft Railgun = new ItemRailgun();
@@ -18,6 +17,9 @@ public class ModItems {
     public static final ItemEzCraft Katana = new ItemKatana();
     public static final ItemEzCraft SpawnerWrench = new ItemSpawnerWrench();
     public static final ItemEzCraft ItemMagnet = new ItemItemMagnet();
+    public static final ItemEzCraft AluminumRod = new ItemAluminumRod();
+    public static final ItemEzCraft AluminumBlade = new ItemAluminumBlade();
+    public static final ItemEzCraft Coil = new ItemCoil();
 
     public static final ItemPickaxe IronHammer = new ItemIronHammer();
     public static final ItemPickaxe DiamondHammer = new ItemDiamondHammer();
@@ -38,7 +40,6 @@ public class ModItems {
 
     public static void init(){
         GameRegistry.registerItem(IronHammer, "IronHammer");
-        GameRegistry.registerItem(Hammer, "Hammer");
         GameRegistry.registerItem(ChunkHammer, "ChunkHammer");
         GameRegistry.registerItem(DiamondHammer, "DiamondHammer");
         GameRegistry.registerItem(AlIngot, "AlIngot");
@@ -51,6 +52,9 @@ public class ModItems {
         GameRegistry.registerItem(Katana, "Katana");
         GameRegistry.registerItem(SpawnerWrench, "SpawnerWrench");
         GameRegistry.registerItem(ItemMagnet, "ItemMagnet");
+        GameRegistry.registerItem(AluminumRod, "AluminumRod");
+        GameRegistry.registerItem(AluminumBlade, "AluminumBlade");
+        GameRegistry.registerItem(Coil, "Coil");
 
         GameRegistry.registerItem(GodlyIngot, "GodlyIngot");
         GameRegistry.registerItem(GodlySword, "GodlySword");
