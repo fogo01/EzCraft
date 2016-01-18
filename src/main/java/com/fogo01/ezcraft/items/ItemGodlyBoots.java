@@ -24,8 +24,7 @@ public class ItemGodlyBoots extends ItemArmor {
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
         if (player.getCurrentArmor(0).getItem() == ModItems.GodlyBoots){
-            //player.addPotionEffect(new PotionEffect(Potion.jump.id, 20, 9));
-            player.fallDistance = 0;
+            player.addPotionEffect(new PotionEffect(Potion.jump.id, 20, 9));
         }
     }
 

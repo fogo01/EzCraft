@@ -27,7 +27,7 @@ public class ItemKatana extends ItemEzCraft {
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-        entity.attackEntityFrom(Reference.DMG_KATANA, 100.0F);
+        entity.attackEntityFrom(Reference.DMG_Katana, 100.0F);
         return true;
     }
 }

@@ -1,6 +1,5 @@
 package com.fogo01.ezcraft.items;
 
-import com.fogo01.ezcraft.utility.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -18,7 +17,7 @@ public class ItemSpawnerWrench extends ItemEzCraft {
         if (world.getBlock(x, y, z) == Blocks.mob_spawner) {
             if (world.getTileEntity(x, y, z) instanceof TileEntityMobSpawner) {
                 TileEntityMobSpawner spawner = (TileEntityMobSpawner) world.getTileEntity(x, y, z);
-                LogHelper.info(spawner.func_145881_a().func_98281_h());
+
                 //spawner.field_145882_a.updateSpawner();
             }
         }

@@ -22,9 +22,8 @@ public class Reference {
 
 
     //DmgSource
-    public static DamageSource DMG_MOBGRINDER = (new DamageSource("Grinder")).setDamageBypassesArmor();
-    public static DamageSource DMG_KATANA = (new DamageSource("Katana")).setDamageBypassesArmor().setDamageAllowedInCreativeMode();
-    public static DamageSource DMG_WORMHOLE = new DamageSource("Worm Hole").setDamageBypassesArmor().setDamageIsAbsolute();
+    public static DamageSource DMG_MobGrinder = (new DamageSource("Grinder")).setDamageBypassesArmor();
+    public static DamageSource DMG_Katana = (new DamageSource("Katana")).setDamageBypassesArmor().setDamageAllowedInCreativeMode();
 
     public static ItemStack[] chargeable = new ItemStack[]{new ItemStack(ModItems.Railgun), new ItemStack(ModItems.EnderPearlLuancher), new ItemStack(ModItems.ItemMagnet)};
 

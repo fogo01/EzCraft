@@ -24,8 +24,6 @@ public class ModBlocks {
 
     public static final BlockContainer LargeChest = new BlockLargeChest();
 
-    public static final BlockContainer WormHole = new BlockWormHole();
-
     public static void init(){
         GameRegistry.registerBlock(AlOre, "AlOre");
         GameRegistry.registerBlock(AlBlock, "AlBlock");
@@ -45,7 +43,5 @@ public class ModBlocks {
         GameRegistry.registerBlock(BlastFurnaceActive, "BlastFurnaceActive");
 
         GameRegistry.registerBlock(LargeChest, "LargeChest");
-
-        GameRegistry.registerBlock(WormHole, "WormHole");
     }
 }

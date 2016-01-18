@@ -8,8 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
 public class ItemFlameThrower extends ItemEzCraft {
     public ItemFlameThrower() {
         super();
@@ -20,10 +18,15 @@ public class ItemFlameThrower extends ItemEzCraft {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
-        float f = 0.15F;
 
-        double yaw = player.rotationYaw + (Math.random() * 10) - 5;
-        double pitch = player.rotationPitch + (Math.random() * 10) - 5;
+        //LogHelper.info(player.rotationYaw);
+        //LogHelper.info(player.rotationPitch);
+
+        float f = 0.8F;
+
+
+        double yaw = player.rotationYaw;
+        double pitch = player.rotationPitch;
 
         float X = -MathHelper.sin((float)yaw / 180.0F * (float) Math.PI) * MathHelper.cos((float)pitch / 180.0F * (float)Math.PI) * f;
         float Y = -MathHelper.sin((float)pitch / 180.0F * (float)Math.PI) * f;
@@ -31,8 +34,6 @@ public class ItemFlameThrower extends ItemEzCraft {
 
         if (getDamage(itemStack) < this.getMaxDamage() && !player.isSneaking() ) {
             EntityFlame entityFlame = new EntityFlame(world, player);
-            entityFlame.setVelocity(X, Y, Z);
-
             if (!world.isRemote) {
                 world.spawnEntityInWorld(entityFlame);
             }

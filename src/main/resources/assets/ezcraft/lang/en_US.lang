@@ -16,7 +16,6 @@ item.ezcraft:ItemMagnet.name=Item Magnet
 item.ezcraft:AluminumRod.name=Aluminum Rod
 item.ezcraft:AluminumBlade.name=Aluminum Blade
 item.ezcraft:Coil.name=Coil
-item.ezcraft:Scanner.name=Scanner
 
 item.ezcraft:GodlyIngot.name=Godly Ingot
 item.ezcraft:GodlySword.name=Godly Sword
@@ -46,7 +45,6 @@ tile.ezcraft:WoddenShaft.name=Wodden Shaft
 tile.ezcraft:EnergyCable.name=Energy Cable
 tile.ezcraft:BlastFurnace.name=Blast Furnace
 tile.ezcraft:LargeChest.name=Large Chest
-tile.ezcraft:CobbleGen.name=Cobbble Generator
 
 Container.Inventory=Inventory
 Container.Turbine=Turbine

@@ -1,11 +1,13 @@
 package com.fogo01.ezcraft.proxy;
 
 import com.fogo01.ezcraft.entities.EntityFlame;
-import com.fogo01.ezcraft.entities.EntityHomingMissile;
 import com.fogo01.ezcraft.entities.EntityRailgunBolt;
 import com.fogo01.ezcraft.init.ModItems;
 import com.fogo01.ezcraft.models.ModelAngelWings;
-import com.fogo01.ezcraft.render.*;
+import com.fogo01.ezcraft.render.RenderFlame;
+import com.fogo01.ezcraft.render.RenderGenerator;
+import com.fogo01.ezcraft.render.RenderRailgunBolt;
+import com.fogo01.ezcraft.render.RenderTurbine;
 import com.fogo01.ezcraft.tileEntity.TileEntityGenerator;
 import com.fogo01.ezcraft.tileEntity.TileEntityTurbine;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -31,7 +33,6 @@ public class ClientProxy extends CommonProxy {
 
         RenderingRegistry.registerEntityRenderingHandler(EntityRailgunBolt.class, new RenderRailgunBolt());
         RenderingRegistry.registerEntityRenderingHandler(EntityFlame.class, new RenderFlame());
-        //RenderingRegistry.registerEntityRenderingHandler(EntityHomingMissile.class, new RenderHomingMissile());
     }
 
     public static void registerTileEntitySpecialRender() {

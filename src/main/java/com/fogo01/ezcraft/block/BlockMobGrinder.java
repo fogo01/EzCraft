@@ -35,7 +35,7 @@ public class BlockMobGrinder extends BlockEzCraft {
     public void onEntityCollidedWithBlock(World world, int X, int Y, int Z, Entity entity) {
         if (entity instanceof EntityLivingBase ) {
             if (((EntityLivingBase) entity).getHealth() > 1) {
-                entity.attackEntityFrom(Reference.DMG_MOBGRINDER, 1.0F);
+                entity.attackEntityFrom(Reference.DMG_MobGrinder, 1.0F);
             }
         }
     }

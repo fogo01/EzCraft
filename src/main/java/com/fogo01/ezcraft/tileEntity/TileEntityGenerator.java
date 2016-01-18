@@ -1,8 +1,5 @@
 package com.fogo01.ezcraft.tileEntity;
 
-import com.fogo01.ezcraft.block.BlockTurbine;
-import com.fogo01.ezcraft.block.BlockWoddenShaft;
-import com.fogo01.ezcraft.init.ModBlocks;
 import com.fogo01.ezcraft.reference.Reference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -17,12 +14,12 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
     private static final int[] slotsSides = new int[]{1};
     private ItemStack[] generatorItemStacks = new ItemStack[2];
     public int energyAmount;
-    private int maxEnergy = 30720;
+    private int maxEnergy = 1000000;
     public int itemEnergyAmount = 1;
     private int maxItemEnergy = 1;
-    public int rpm;
-    public int torque;
     private String localizedName;
+    private TileEntity tileEntity;
+    private TileEntityTurbine tileEntityTurbine;
     private int energyProduction = 80;
 
     public void readFromNBT(NBTTagCompound tagCompound) {
@@ -189,7 +186,7 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
     }
 
     public boolean isGenerating() {
-        return rpm >= 100;
+        return this.tileEntityTurbine.isBurning();
     }
 
     public boolean canCharge(ItemStack itemStack) {
@@ -211,27 +208,16 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
 
     @Override
     public void updateEntity() {
+        //boolean flag = this.isGenerating();
         boolean flag1 = false;
-
-        this.rpm = 0;
-        this.torque = 0;
-        int x = xCoord, y = yCoord - 1, z = zCoord;
-        while (worldObj.getBlock(x, y ,z) == ModBlocks.WoddenShaft) {
-            y--;
-        }
-
-        if (worldObj.getBlock(x, y ,z) == ModBlocks.Turbine) {
-            if (worldObj.getTileEntity(x, y, z) instanceof TileEntityTurbine) {
-                TileEntityTurbine turbine = (TileEntityTurbine)worldObj.getTileEntity(x, y, z);
-                this.rpm = turbine.rpm;
-                this.torque = turbine.torque;
-            }
-        }
+        this.tileEntity = this.worldObj.getTileEntity(this.xCoord, this.yCoord-1, this.zCoord);
 
         if (!this.worldObj.isRemote) {
-            if (rpm >= 100) {
-                if (energyAmount < maxEnergy - rpm / 100) {
-                    this.energyAmount += rpm / 100;
+            if (this.tileEntity instanceof TileEntityTurbine) {
+                this.tileEntityTurbine = (TileEntityTurbine) this.tileEntity;
+
+                if (this.tileEntityTurbine.isBurning() &&energyAmount < maxEnergy - this.energyProduction) {
+                    this.energyAmount += this.energyProduction;
                     flag1 = true;
                 }
             }
@@ -242,10 +228,8 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
                 if (canCharge(this.generatorItemStacks[0])) {
                     if (this.energyAmount > 0) {
                         int itemDmg = this.generatorItemStacks[0].getItemDamage();
-                        if (itemDmg > 0) {
-                            this.generatorItemStacks[0].setItemDamage(itemDmg - 1);
-                            this.energyAmount -= 1;
-                        }
+                        this.generatorItemStacks[0].setItemDamage(itemDmg - 1);
+                        this.energyAmount -= 1;
 
                         this.itemEnergyAmount = this.generatorItemStacks[0].getItemDamage();
                         this.maxItemEnergy = this.generatorItemStacks[0].getMaxDamage();
@@ -254,6 +238,16 @@ public class TileEntityGenerator extends TileEntity implements ISidedInventory {
                     }
                 }
             }
+
+            /*
+            if (this.itemEnergyAmount > 0) {
+                flag1 = true;
+            }
+
+            if (flag != this.itemEnergyAmount > 0) {
+                flag1 = true;
+            }
+            */
         }
 
         if (flag1) {

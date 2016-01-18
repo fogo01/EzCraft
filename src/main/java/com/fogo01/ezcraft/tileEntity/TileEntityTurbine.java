@@ -23,10 +23,7 @@ public class TileEntityTurbine extends TileEntity implements ISidedInventory {
     private ItemStack[] turbineItemStacks = new ItemStack[1];
     public int turbineBurnTime;
     public int currentItemBurnTime;
-    public int rpm;
-    private int maxRpm = 1000;
-    public int torque;
-    private int maxTorque = 10;
+    public int steamGen = 10;
     private String localizedName;
 
     public TileEntityTurbine() {
@@ -48,9 +45,7 @@ public class TileEntityTurbine extends TileEntity implements ISidedInventory {
         }
 
         this.turbineBurnTime = tagCompound.getInteger("BurnTime");
-        this.currentItemBurnTime = tagCompound.getInteger("CurentItemBurnTime");
-        this.rpm = tagCompound.getInteger("rpm");
-        this.torque = tagCompound.getInteger("torque");
+        this.currentItemBurnTime = getItemBurnTime(this.turbineItemStacks[0]);
 
         if (tagCompound.hasKey("CustomName", 8)) {
             this.localizedName = tagCompound.getString("CustomName");
@@ -59,11 +54,7 @@ public class TileEntityTurbine extends TileEntity implements ISidedInventory {
 
     public void writeToNBT(NBTTagCompound tagCompound) {
         super.writeToNBT(tagCompound);
-
         tagCompound.setInteger("BurnTime", this.turbineBurnTime);
-        this.currentItemBurnTime = getItemBurnTime(this.turbineItemStacks[0]);
-        tagCompound.setInteger("rpm", this.rpm);
-        tagCompound.setInteger("torque", this.torque);
         NBTTagList nbttaglist = new NBTTagList();
 
         for (int i = 0; i < this.turbineItemStacks.length; ++i) {
@@ -235,7 +226,7 @@ public class TileEntityTurbine extends TileEntity implements ISidedInventory {
         return this.turbineBurnTime * p_145955_1_ / this.currentItemBurnTime;
     }
 
-    private boolean canBoil() {
+    private boolean canSmelt() {
         return this.worldObj.getBlock(this.xCoord, this.yCoord-1, this.zCoord) == Blocks.water || this.worldObj.getBlock(this.xCoord, this.yCoord-1, this.zCoord) == ModBlocks.InfiniWater;
     }
 
@@ -244,27 +235,17 @@ public class TileEntityTurbine extends TileEntity implements ISidedInventory {
         boolean flag = this.isBurning();
         boolean flag1 = false;
 
-        if (!this.worldObj.isRemote) {
-            if (this.turbineBurnTime > 0) {
-                --this.turbineBurnTime;
-                torque = maxTorque;
-                if (rpm < maxRpm) {
-                    rpm++;
-                }
-            } else {
-                if (rpm > 0) {
-                    rpm--;
-                }
-            }
+        if (this.turbineBurnTime > 0) {
+            --this.turbineBurnTime;
+            worldObj.spawnParticle("smoke", this.xCoord+0.5F, this.yCoord+1.0F, this.zCoord+0.5F, 0.0F, 0.0F, 0.0F);
+        }
 
-            if (this.turbineBurnTime == 0 && this.canBoil()) {
+        if (!this.worldObj.isRemote) {
+            if (this.turbineBurnTime == 0 && this.canSmelt()) {
                 this.currentItemBurnTime = this.turbineBurnTime = getItemBurnTime(this.turbineItemStacks[0]);
 
                 if (this.turbineBurnTime > 0) {
                     flag1 = true;
-                    if (worldObj.getBlock(xCoord, yCoord - 1, zCoord) == Blocks.water) {
-                        worldObj.setBlockToAir(xCoord, yCoord - 1, zCoord);
-                    }
 
                     if (this.turbineItemStacks[0] != null) {
                         --this.turbineItemStacks[0].stackSize;

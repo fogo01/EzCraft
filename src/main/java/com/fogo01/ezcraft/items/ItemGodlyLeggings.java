@@ -5,7 +5,6 @@ import com.fogo01.ezcraft.init.ModItems;
 import com.fogo01.ezcraft.reference.RefMaterials;
 import com.fogo01.ezcraft.reference.Reference;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -25,11 +24,7 @@ public class ItemGodlyLeggings extends ItemArmor {
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
         if (player.getCurrentArmor(1).getItem() == ModItems.GodlyLeggings){
-            //player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 20, 9));
-            if (player.onGround) {
-                player.motionX *= 1.5f;
-                player.motionZ *= 1.5f;
-            }
+            player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 20, 9));
         }
     }
 

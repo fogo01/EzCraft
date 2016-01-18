@@ -5,9 +5,8 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class EntityRailgunBolt extends EntityThrowable {
-    private int life = 0;
-
+public class EntityRailgunBolt extends EntityThrowable
+{
     public EntityRailgunBolt(World par1World) {
         super(par1World);
     }
@@ -32,13 +31,17 @@ public class EntityRailgunBolt extends EntityThrowable {
         this.setDead();
     }
 
+    private int life = 0;
     @Override
     public void onUpdate(){
         super.onUpdate();
         this.worldObj.spawnParticle("reddust", this.posX, this.posY, this.posZ, 0, 0, 0);
+        life++;
         if(life >= 100) {
             this.setDead();
         }
-        life++;
+
+
+
     }
 }

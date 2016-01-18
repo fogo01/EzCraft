@@ -29,20 +29,11 @@ public class ItemItemMagnet extends ItemEzCraft {
         active = false;
     }
 
-
-
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
-        NBTTagCompound nbtTagCompound = itemStack.getTagCompound();
-
-        if (nbtTagCompound == null) {
-            nbtTagCompound = new NBTTagCompound();
-            itemStack.setTagCompound(nbtTagCompound);
-            nbtTagCompound.setBoolean("active", false);
-        }
 
         if (player.isSneaking() && world.isRemote) {
-            if (nbtTagCompound.getBoolean("active")) {
+            if (active) {
                 //this.setUnlocalizedName("ItemMagnetUnActive");
                 active = false;
             } else {
@@ -50,7 +41,6 @@ public class ItemItemMagnet extends ItemEzCraft {
                 active = true;
             }
         }
-        nbtTagCompound.setBoolean("active", active);
         return itemStack;
     }
 
