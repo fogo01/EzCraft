@@ -2,9 +2,7 @@ package com.fogo01.ezcraft.items;
 
 import com.fogo01.ezcraft.crativetab.CreativeTabEzCraft;
 import com.fogo01.ezcraft.reference.Reference;
-import com.fogo01.ezcraft.reference.Reference;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockPistonBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -29,8 +27,6 @@ public class ItemDiamondHammer extends ItemPickaxe {
 
     @Override
     public boolean onBlockStartBreak(ItemStack itemstack ,int blockX, int blockY, int blockZ, EntityPlayer player) {
-        //LogHelper.info(itemstack + " " + player + " " + world + " " + blockX + " " + blockY + " " + blockZ + " " + side + " " + hitX + " " + hitY + " " + hitZ);
-        //LogHelper.info(side);
         World world = player.getEntityWorld();
         Block b = world.getBlock(blockX, blockY, blockZ);
         if(canHarvestBlock(b, itemstack) && !player.isSneaking()) {
@@ -59,7 +55,7 @@ public class ItemDiamondHammer extends ItemPickaxe {
                                         if (getDamage(itemstack) < Reference.DIAMOND_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode && !world.isRemote) {
-                                                player.dropItem(getItemFromBlock(block), 1);
+                                                block.dropBlockAsItemWithChance(world, (int) player.posX, (int) player.posY, (int) player.posZ, world.getBlockMetadata(X, Y, Z), 1.0f, 0);
                                                 itemstack.damageItem(1, player);
                                             }
                                         }
@@ -87,7 +83,7 @@ public class ItemDiamondHammer extends ItemPickaxe {
                                         if (getDamage(itemstack) < Reference.DIAMOND_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode && !world.isRemote) {
-                                                player.dropItem(getItemFromBlock(block), 1);
+                                                block.dropBlockAsItemWithChance(world, (int) player.posX, (int) player.posY, (int) player.posZ, world.getBlockMetadata(X, Y, Z), 1.0f, 0);
                                                 itemstack.damageItem(1, player);
                                             }
                                         }
@@ -115,7 +111,7 @@ public class ItemDiamondHammer extends ItemPickaxe {
                                         if (getDamage(itemstack) < Reference.DIAMOND_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode && !world.isRemote) {
-                                                player.dropItem(getItemFromBlock(block), 1);
+                                                block.dropBlockAsItemWithChance(world, (int) player.posX, (int) player.posY, (int) player.posZ, world.getBlockMetadata(X, Y, Z), 1.0f, 0);
                                                 itemstack.damageItem(1, player);
                                             }
                                         }
@@ -143,7 +139,7 @@ public class ItemDiamondHammer extends ItemPickaxe {
                                         if (getDamage(itemstack) < Reference.DIAMOND_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode && !world.isRemote) {
-                                                player.dropItem(getItemFromBlock(block), 1);
+                                                block.dropBlockAsItemWithChance(world, (int) player.posX, (int) player.posY, (int) player.posZ, world.getBlockMetadata(X, Y, Z), 1.0f, 0);
                                                 itemstack.damageItem(1, player);
                                             }
                                         }
@@ -171,7 +167,7 @@ public class ItemDiamondHammer extends ItemPickaxe {
                                         if (getDamage(itemstack) < Reference.DIAMOND_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode && !world.isRemote) {
-                                                player.dropItem(getItemFromBlock(block), 1);
+                                                block.dropBlockAsItemWithChance(world, (int) player.posX, (int) player.posY, (int) player.posZ, world.getBlockMetadata(X, Y, Z), 1.0f, 0);
                                                 itemstack.damageItem(1, player);
                                             }
                                         }
@@ -199,7 +195,7 @@ public class ItemDiamondHammer extends ItemPickaxe {
                                         if (getDamage(itemstack) < Reference.DIAMOND_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode && !world.isRemote) {
-                                                player.dropItem(getItemFromBlock(block), 1);
+                                                block.dropBlockAsItemWithChance(world, (int)player.posX, (int)player.posY, (int)player.posZ, world.getBlockMetadata(X, Y ,Z), 1.0f, 0);
                                                 itemstack.damageItem(1, player);
                                             }
                                         }

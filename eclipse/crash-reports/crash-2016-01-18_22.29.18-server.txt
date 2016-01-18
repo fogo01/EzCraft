@@ -1,0 +1,84 @@
+---- Minecraft Crash Report ----
+// I bet Cylons wouldn't have this problem.
+
+Time: 2016-01-18 22:29
+Description: Ticking player
+
+java.lang.NullPointerException: Ticking player
+	at com.fogo01.ezcraft.items.ItemScanner.onUpdate(ItemScanner.java:32)
+	at net.minecraft.item.ItemStack.updateAnimation(ItemStack.java:476)
+	at net.minecraft.entity.player.InventoryPlayer.decrementAnimations(InventoryPlayer.java:347)
+	at net.minecraft.entity.player.EntityPlayer.onLivingUpdate(EntityPlayer.java:610)
+	at net.minecraft.entity.EntityLivingBase.onUpdate(EntityLivingBase.java:1816)
+	at net.minecraft.entity.player.EntityPlayer.onUpdate(EntityPlayer.java:327)
+	at net.minecraft.entity.player.EntityPlayerMP.onUpdateEntity(EntityPlayerMP.java:330)
+	at net.minecraft.network.NetHandlerPlayServer.processPlayer(NetHandlerPlayServer.java:329)
+	at net.minecraft.network.play.client.C03PacketPlayer.processPacket(C03PacketPlayer.java:37)
+	at net.minecraft.network.play.client.C03PacketPlayer.processPacket(C03PacketPlayer.java:111)
+	at net.minecraft.network.NetworkManager.processReceivedPackets(NetworkManager.java:241)
+	at net.minecraft.network.NetworkSystem.networkTick(NetworkSystem.java:182)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:726)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:614)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:118)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:485)
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:752)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at com.fogo01.ezcraft.items.ItemScanner.onUpdate(ItemScanner.java:32)
+	at net.minecraft.item.ItemStack.updateAnimation(ItemStack.java:476)
+	at net.minecraft.entity.player.InventoryPlayer.decrementAnimations(InventoryPlayer.java:347)
+	at net.minecraft.entity.player.EntityPlayer.onLivingUpdate(EntityPlayer.java:610)
+	at net.minecraft.entity.EntityLivingBase.onUpdate(EntityLivingBase.java:1816)
+	at net.minecraft.entity.player.EntityPlayer.onUpdate(EntityPlayer.java:327)
+
+-- Player being ticked --
+Details:
+	Entity Type: null (net.minecraft.entity.player.EntityPlayerMP)
+	Entity ID: 23
+	Entity Name: fogo01
+	Entity's Exact location: -9,87, 237,00, -24,99
+	Entity's Block location: World: (-10,237,-25), Chunk: (at 6,14,7 in -1,-2; contains blocks -16,0,-32 to -1,255,-17), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,0,-512 to -1,255,-1)
+	Entity's Momentum: 0,00, -0,08, 0,00
+Stacktrace:
+	at net.minecraft.entity.player.EntityPlayerMP.onUpdateEntity(EntityPlayerMP.java:330)
+	at net.minecraft.network.NetHandlerPlayServer.processPlayer(NetHandlerPlayServer.java:329)
+	at net.minecraft.network.play.client.C03PacketPlayer.processPacket(C03PacketPlayer.java:37)
+	at net.minecraft.network.play.client.C03PacketPlayer.processPacket(C03PacketPlayer.java:111)
+	at net.minecraft.network.NetworkManager.processReceivedPackets(NetworkManager.java:241)
+
+-- Ticking connection --
+Details:
+	Connection: net.minecraft.network.NetworkManager@273a96ec
+Stacktrace:
+	at net.minecraft.network.NetworkSystem.networkTick(NetworkSystem.java:182)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:726)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:614)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:118)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:485)
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:752)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Windows 8.1 (amd64) version 6.3
+	Java Version: 1.8.0_31, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 649746608 bytes (619 MB) / 1037959168 bytes (989 MB) up to 1037959168 bytes (989 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP v9.05 FML v7.10.85.1291 Minecraft Forge 10.13.2.1291 4 mods loaded, 4 mods active
+	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	FML{7.10.85.1291} [Forge Mod Loader] (forgeSrc-1.7.10-10.13.2.1291.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Forge{10.13.2.1291} [Minecraft Forge] (forgeSrc-1.7.10-10.13.2.1291.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	EzCraft{1.7.10-1.1.0} [EzCraft] (EzCraft) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Profiler Position: N/A (disabled)
+	Vec3 Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	Player Count: 1 / 8; [EntityPlayerMP['fogo01'/23, l='New World', x=-9,87, y=237,00, z=-24,99]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'

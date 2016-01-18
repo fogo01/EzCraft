@@ -51,6 +51,7 @@ public class ItemIronHammer extends ItemPickaxe {
                                         if (getDamage(itemstack) < Reference.IRON_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode) {
+                                                block.dropBlockAsItemWithChance(world, (int)player.posX, (int)player.posY, (int)player.posZ, world.getBlockMetadata(X, Y ,Z), 1.0f, 0);
                                                 itemstack.damageItem(1, player);
 
                                             }
@@ -79,6 +80,7 @@ public class ItemIronHammer extends ItemPickaxe {
                                         if (getDamage(itemstack) < Reference.IRON_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode) {
+                                                block.dropBlockAsItemWithChance(world, (int)player.posX, (int)player.posY, (int)player.posZ, world.getBlockMetadata(X, Y ,Z), 1.0f, 0);
                                                 itemstack.damageItem(1, player);
                                             }
                                         }
@@ -106,6 +108,7 @@ public class ItemIronHammer extends ItemPickaxe {
                                         if (getDamage(itemstack) < Reference.IRON_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode) {
+                                                block.dropBlockAsItemWithChance(world, (int)player.posX, (int)player.posY, (int)player.posZ, world.getBlockMetadata(X, Y ,Z), 1.0f, 0);
                                                 itemstack.damageItem(1, player);
                                             }
                                         }
@@ -133,6 +136,7 @@ public class ItemIronHammer extends ItemPickaxe {
                                         if (getDamage(itemstack) < Reference.IRON_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode) {
+                                                block.dropBlockAsItemWithChance(world, (int)player.posX, (int)player.posY, (int)player.posZ, world.getBlockMetadata(X, Y ,Z), 1.0f, 0);
                                                 itemstack.damageItem(1, player);
                                             }
                                         }
@@ -160,6 +164,7 @@ public class ItemIronHammer extends ItemPickaxe {
                                         if (getDamage(itemstack) < Reference.IRON_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode) {
+                                                block.dropBlockAsItemWithChance(world, (int)player.posX, (int)player.posY, (int)player.posZ, world.getBlockMetadata(X, Y ,Z), 1.0f, 0);
                                                 itemstack.damageItem(1, player);
                                             }
                                         }
@@ -187,6 +192,7 @@ public class ItemIronHammer extends ItemPickaxe {
                                         if (getDamage(itemstack) < Reference.IRON_DURABILITY) {
                                             world.setBlock(X, Y, Z, Blocks.air, 0, 3);
                                             if (!player.capabilities.isCreativeMode) {
+                                                block.dropBlockAsItemWithChance(world, (int)player.posX, (int)player.posY, (int)player.posZ, world.getBlockMetadata(X, Y ,Z), 1.0f, 0);
                                                 itemstack.damageItem(1, player);
                                             }
                                         }

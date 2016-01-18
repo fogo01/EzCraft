@@ -42,6 +42,7 @@ public class EzCraft {
 
         ModItems.init();
         ModBlocks.init();
+        ModTileEntities.init();
         OreDict.init();
         ModEntities.init();
         ModAchievements.init();
