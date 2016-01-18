@@ -20,6 +20,9 @@ public class ModItems {
     public static final ItemEzCraft AluminumRod = new ItemAluminumRod();
     public static final ItemEzCraft AluminumBlade = new ItemAluminumBlade();
     public static final ItemEzCraft Coil = new ItemCoil();
+    public static final ItemEzCraft Wrench = new ItemWrench();
+    public static final ItemEzCraft Launcher = new ItemLauncher();
+    public static final ItemEzCraft Scanner = new ItemScanner();
 
     public static final ItemPickaxe IronHammer = new ItemIronHammer();
     public static final ItemPickaxe DiamondHammer = new ItemDiamondHammer();
@@ -35,6 +38,8 @@ public class ModItems {
     public static final ItemArmor GodlyChestplate = new ItemGodlyChestplate();
     public static final ItemArmor GodlyLeggings = new ItemGodlyLeggings();
     public static final ItemArmor GodlyBoots = new ItemGodlyBoots();
+
+    public static final ItemArmor LeadBoots = new ItemLeadBoots();
 
     public static final ItemArmor AngelWings = new ItemAngelWings();
 
@@ -55,6 +60,9 @@ public class ModItems {
         GameRegistry.registerItem(AluminumRod, "AluminumRod");
         GameRegistry.registerItem(AluminumBlade, "AluminumBlade");
         GameRegistry.registerItem(Coil, "Coil");
+        GameRegistry.registerItem(Wrench, "Wrench");
+        GameRegistry.registerItem(Launcher, "Launcher");
+        GameRegistry.registerItem(Scanner, "Scanner");
 
         GameRegistry.registerItem(GodlyIngot, "GodlyIngot");
         GameRegistry.registerItem(GodlySword, "GodlySword");
@@ -67,6 +75,8 @@ public class ModItems {
         GameRegistry.registerItem(GodlyChestplate, "GodlyChestplate");
         GameRegistry.registerItem(GodlyLeggings, "GodlyLeggins");
         GameRegistry.registerItem(GodlyBoots, "GodlyBoots");
+
+        GameRegistry.registerItem(LeadBoots, "LeadBoots");
 
         GameRegistry.registerItem(AngelWings, "AngelWings");
 	}

@@ -3,6 +3,7 @@ package com.fogo01.ezcraft.block;
 import com.fogo01.ezcraft.EzCraft;
 import com.fogo01.ezcraft.reference.Reference;
 import com.fogo01.ezcraft.tileEntity.TileEntityGenerator;
+import com.fogo01.ezcraft.utility.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;

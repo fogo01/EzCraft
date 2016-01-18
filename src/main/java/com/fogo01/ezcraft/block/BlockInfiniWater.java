@@ -16,9 +16,11 @@ public class BlockInfiniWater extends BlockEzCraft {
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-        if (player.getCurrentEquippedItem().isItemEqual(new ItemStack(Items.bucket))) {
-            player.inventory.consumeInventoryItem(Items.bucket);
-            player.inventory.addItemStackToInventory(new ItemStack(Items.water_bucket, 1));
+        if (player.getCurrentEquippedItem() != null) {
+            if (player.getCurrentEquippedItem().isItemEqual(new ItemStack(Items.bucket)) && !player.capabilities.isCreativeMode) {
+                player.inventory.consumeInventoryItem(Items.bucket);
+                player.inventory.addItemStackToInventory(new ItemStack(Items.water_bucket, 1));
+            }
         }
         return true;
     }

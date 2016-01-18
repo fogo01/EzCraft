@@ -7,7 +7,9 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class EntityFlame extends EntityThrowable {
-    private float speed = 0.2F;
+    private float speed = 0.15F;
+    EntityLivingBase player;
+
     public EntityFlame(World world) {
         super(world);
         this.motionX*=speed;
@@ -17,6 +19,7 @@ public class EntityFlame extends EntityThrowable {
 
     public EntityFlame(World world, EntityLivingBase entity) {
         super(world, entity);
+        player = entity;
         this.motionX*=speed;
         this.motionY*=speed;
         this.motionZ*=speed;
@@ -38,7 +41,7 @@ public class EntityFlame extends EntityThrowable {
     protected void onImpact(MovingObjectPosition movingObjectPosition) {
         this.worldObj.spawnParticle("flame", this.posX, this.posY, this.posZ, 0, 0, 0);
         Entity entity = movingObjectPosition.entityHit;
-        if (entity != null) {
+        if (entity != null && entity != player) {
             entity.setFire(5);
             entity.setVelocity(this.motionX, this.motionY, this.motionZ);
         }
@@ -52,10 +55,11 @@ public class EntityFlame extends EntityThrowable {
         if (life > 0) {
             this.worldObj.spawnParticle("flame", this.posX, this.posY, this.posZ, this.motionX, this.motionY, this.motionZ);
             this.worldObj.spawnParticle("flame", this.posX, this.posY, this.posZ, 0, 0, 0);
+            this.worldObj.spawnParticle("flame", this.posX + Math.random() - 0.5, this.posY + Math.random() - 0.5, this.posZ + Math.random() - 0.5, 0, 0, 0);
         }
 
         life++;
-        if(life >= 50) {
+        if(life >= 80) {
             this.setDead();
             //this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 1, true);
         }
