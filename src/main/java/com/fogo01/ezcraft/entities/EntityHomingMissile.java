@@ -11,14 +11,16 @@ import java.util.List;
 
 public class EntityHomingMissile extends EntityThrowable {
     private int life = 0;
+    private boolean isHoming = false;
     public EntityLivingBase target = null;
 
     public EntityHomingMissile(World par1World) {
         super(par1World);
     }
 
-    public EntityHomingMissile(World par1World, EntityLivingBase par2EntityLivingBase) {
+    public EntityHomingMissile(World par1World, EntityLivingBase par2EntityLivingBase, boolean homing) {
         super(par1World, par2EntityLivingBase);
+        this.isHoming = homing;
     }
 
     public EntityHomingMissile(World par1World, EntityLivingBase par2EntityLivingBase, EntityLivingBase target) {
@@ -55,29 +57,30 @@ public class EntityHomingMissile extends EntityThrowable {
         this.worldObj.spawnParticle("flame", this.posX, this.posY, this.posZ, -this.motionX / 10, -this.motionY / 10, -this.motionZ / 10);
         this.worldObj.spawnParticle("smoke", this.posX + Math.random() - 0.5, this.posY + Math.random() - 0.5, this.posZ + Math.random() - 0.5, 0, 0, 0);
 
-        EntityLivingBase localTarget = null;
-        if (target == null) {
-            AxisAlignedBB AABB = AxisAlignedBB.getBoundingBox(this.posX - 10, this.posY - 10, this.posZ - 10, this.posX + 10, this.posY + 10, this.posZ + 10);
+        if (isHoming) {
+            EntityLivingBase localTarget = target;
+                /*
+                AxisAlignedBB AABB = AxisAlignedBB.getBoundingBox(this.posX - 10, this.posY - 10, this.posZ - 10, this.posX + 10, this.posY + 10, this.posZ + 10);
 
-            List entities = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AABB);
-            EntityLivingBase entity;
-            double distance = 0;
-            for (int i = 0; i < entities.size(); ++i) {
-                entity = (EntityLivingBase) entities.get(i);
+                List entities = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AABB);
+                EntityLivingBase entity;
+                double distance = 0;
+                for (int i = 0; i < entities.size(); ++i) {
+                    entity = (EntityLivingBase) entities.get(i);
 
-                double X = this.posX - entity.posX;
-                double Y = this.posY - entity.posY + 1;
-                double Z = this.posZ - entity.posZ;
+                    double X = this.posX - entity.posX;
+                    double Y = this.posY - entity.posY + 1;
+                    double Z = this.posZ - entity.posZ;
 
-                if (getDistanceSq(X, Y, Z) > distance && entity != this.getThrower()) {
-                    localTarget = (EntityLivingBase) entities.get(i);
-                    distance = getDistanceSq(X, Y, Z);
+                    if (getDistanceSq(X, Y, Z) > distance && entity != this.getThrower()) {
+                        localTarget = (EntityLivingBase) entities.get(i);
+                        distance = getDistanceSq(X, Y, Z);
+                    }
                 }
-            }
+                */
 
-        } else {
             localTarget = target;
-        }
+
             LogHelper.info(localTarget);
 
             if (localTarget != null) {
@@ -85,8 +88,9 @@ public class EntityHomingMissile extends EntityThrowable {
                 double Y = localTarget.posY - this.posY;
                 double Z = localTarget.posZ - this.posZ;
                 float f = 0.1f;
-                this.addVelocity(X * f, Y * f, Z * f);
+                this.setVelocity(X * f, Y * f, Z * f);
             }
+        }
 
         if(life >= 100) {
             this.setDead();

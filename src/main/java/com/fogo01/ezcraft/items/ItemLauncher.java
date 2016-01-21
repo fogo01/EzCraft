@@ -70,9 +70,10 @@ public class ItemLauncher extends ItemEzCraft {
         if (!player.isSneaking()) {
             EntityHomingMissile entityHomingMissile = null;
             if (!lockOn) {
-                entityHomingMissile = new EntityHomingMissile(world, player);
+                entityHomingMissile = new EntityHomingMissile(world, player, false);
             } else if (target != null){
-                entityHomingMissile = new EntityHomingMissile(world, player, target);
+                entityHomingMissile = new EntityHomingMissile(world, player, true);
+                entityHomingMissile.target = target;
             } else {
                 if (!world.isRemote)
                 player.addChatMessage(new ChatComponentText("No Target"));
@@ -88,9 +89,11 @@ public class ItemLauncher extends ItemEzCraft {
                 nbtTagCompound.setBoolean("lockOn", false);
             }
 
-            if (world.isRemote) {
+            if (!world.isRemote) {
                 lockOn = !nbtTagCompound.getBoolean("lockOn");
+                player.addChatMessage(new ChatComponentText("Lock on set to: " + lockOn));
             }
+
             nbtTagCompound.setBoolean("lockOn", lockOn);
         }
         return itemStack;
