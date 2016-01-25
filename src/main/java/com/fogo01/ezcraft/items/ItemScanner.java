@@ -2,17 +2,19 @@ package com.fogo01.ezcraft.items;
 
 import com.fogo01.ezcraft.init.ModBlocks;
 import com.fogo01.ezcraft.init.ModItems;
-import com.fogo01.ezcraft.tileEntity.TileEntityWormHole;
-import com.fogo01.ezcraft.utility.LogHelper;
+import com.fogo01.ezcraft.reference.Reference;
+import com.fogo01.ezcraft.reference.ReferenceWormHole;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-import java.util.List;
-
 public class ItemScanner extends ItemEzCraft {
+    int range = Reference.scannerRadius;
+    int radius = ReferenceWormHole.radius;
+    float dmgRadius = ReferenceWormHole.dmgRadius;
+
     public ItemScanner() {
         super();
         this.setUnlocalizedName("Scanner");
@@ -24,9 +26,6 @@ public class ItemScanner extends ItemEzCraft {
         EntityPlayer player;
         if (entity instanceof EntityPlayer) {
             player = (EntityPlayer) entity;
-
-            int range = 32;
-            int radius = 4;
 
             if (player.getHeldItem() != null && player.getHeldItem().isItemEqual(new ItemStack(ModItems.Scanner))) {
                 AxisAlignedBB.getBoundingBox(player.posX - range, player.posY - range, player.posZ - range, player.posX + range, player.posY + range, player.posZ + range);
@@ -44,7 +43,14 @@ public class ItemScanner extends ItemEzCraft {
                                                     x1 == radius && y1 == -radius || x1 == radius && z1 == -radius || y1 == radius && z1 == -radius ||
 
                                                     x1 == y1 && x1 == z1 || x1 == -y1 && x1 == z1 || x1 == y1 && x1 == -z1 || x1 == -y1 && x1 == -z1)
-                                                world.spawnParticle("flame", x + 0.5 + x1, y + 0.5 + y1, z + 0.5 + z1, 0.0f, -0.05f, 0.0f);
+                                                world.spawnParticle("crit", x + 0.5 + x1, y + 0.5 + y1, z + 0.5 + z1, 0.0f, 0.0f, 0.0f);
+                                        }
+                                    }
+                                }
+                                for (float x1 = -(dmgRadius + 0.5f); x1 <= dmgRadius + 0.5f; x1++) {
+                                    for (float y1 = -(dmgRadius + 0.5f); y1 <= dmgRadius + 0.5f; y1++) {
+                                        for (float z1 = -(dmgRadius + 0.5f); z1 <= dmgRadius + 0.5f; z1++) {
+                                            world.spawnParticle("reddust", x + 0.5 + x1, y + 0.5 + y1, z + 0.5 + z1, 0.0f, 0.0f, 0.0f);
                                         }
                                     }
                                 }
@@ -53,7 +59,6 @@ public class ItemScanner extends ItemEzCraft {
                     }
                 }
             }
-            return;
         }
     }
 }

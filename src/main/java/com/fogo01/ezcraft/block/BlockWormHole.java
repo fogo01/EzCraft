@@ -21,7 +21,7 @@ public class BlockWormHole extends BlockContainer {
         this.setBlockUnbreakable();
         this.setBlockName("WormHole");
         this.setCreativeTab(CreativeTabEzCraft.EzCraft_TAB);
-        this.setBlockBounds(0.4375F, 0.4375F, 0.4375F, 0.5625F, 0.5625F, 0.5625F);
+        this.setBlockBounds(0f, 0f, 0f, 1f, 1f, 1f);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class BlockWormHole extends BlockContainer {
 
     @Override
     public void setBlockBoundsForItemRender() {
-        this.setBlockBounds(0.4375F, 0.4375F, 0.4375F, 0.5625F, 0.5625F, 0.5625F);
+        this.setBlockBounds(0f, 0f, 0f, 1f, 1f, 1f);
     }
 
     @Override

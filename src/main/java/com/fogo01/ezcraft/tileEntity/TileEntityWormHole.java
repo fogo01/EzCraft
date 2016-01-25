@@ -2,6 +2,7 @@ package com.fogo01.ezcraft.tileEntity;
 
 import com.fogo01.ezcraft.init.ModItems;
 import com.fogo01.ezcraft.reference.Reference;
+import com.fogo01.ezcraft.reference.ReferenceWormHole;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,13 +12,14 @@ import net.minecraft.util.AxisAlignedBB;
 import java.util.List;
 
 public class TileEntityWormHole extends TileEntity {
-    float radius = 4.0f;
-    float dmgRadius = 0.5f;
+    float radius = ReferenceWormHole.radius;
+    float dmgRadius = ReferenceWormHole.dmgRadius;
 
     @Override
     public void updateEntity() {
         float centreX = xCoord + 0.5f, centreY = yCoord + 0.5f, centreZ = zCoord + 0.5f;
 
+        /*
         double x = Math.random(), y = Math.random(), z = Math.random();
         worldObj.spawnParticle("smoke", xCoord + x * 8 - 4, yCoord + y * 8 - 4, zCoord + z * 8 - 4, -x +0.5, -y +0.5, -z +0.5);
         worldObj.spawnParticle("smoke", xCoord + Math.random() * 5 - 2.5, yCoord + Math.random() * 5 - 2.5, zCoord + Math.random() * 5 - 2.5, 0, 0, 0);
@@ -25,6 +27,7 @@ public class TileEntityWormHole extends TileEntity {
         worldObj.spawnParticle("smoke", centreX + x * 2 * radius - radius, centreY + y * 2 * radius - radius, centreZ + z * 2 * radius - radius, -x / 2, -y / 2, -z / 2);
 
         worldObj.spawnParticle("smoke", centreX, centreY, centreZ, 0.0f, 0.0f, 0.0f);
+        */
         
         AxisAlignedBB AABB = AxisAlignedBB.getBoundingBox(centreX - radius, centreY - radius, centreZ - radius, centreX + radius, centreY + radius, centreZ + radius);
         List list = worldObj.getEntitiesWithinAABB(Entity.class, AABB);
@@ -56,28 +59,6 @@ public class TileEntityWormHole extends TileEntity {
         for (int i = 0; i < list.size(); ++i) {
             entity = (Entity)list.get(i);
             entity.attackEntityFrom(Reference.DMG_WORMHOLE, 1.0f);
-        }
-
-        for (float x1 = -(dmgRadius + 0.5f); x1 <= dmgRadius + 0.5f; x1++) {
-            for (float y1 = -(dmgRadius + 0.5f); y1 <= dmgRadius + 0.5f; y1++) {
-                for (float z1 = -(dmgRadius + 0.5f); z1 <= dmgRadius + 0.5f; z1++) {
-                    worldObj.spawnParticle("reddust", centreX + x1, centreY + y1, centreZ + z1, 0.0f, -0.05f, 0.0f);
-                }
-            }
-        }
-
-        for (float x1 = -radius; x1 <= radius; x1++) {
-            for (float y1 = -radius; y1 <= radius; y1++) {
-                for (float z1 = -radius; z1 <= radius; z1++) {
-                    if (x1 == radius && y1 == radius || x1 == radius && z1 == radius || y1 == radius && z1 == radius ||
-                            x1 == -radius && y1 == -radius || x1 == -radius && z1 == -radius || y1 == -radius && z1 == -radius ||
-                            x1 == -radius && y1 == radius || x1 == -radius && z1 == radius || y1 == -radius && z1 == radius ||
-                            x1 == radius && y1 == -radius || x1 == radius && z1 == -radius || y1 == radius && z1 == -radius ||
-
-                            x1 == y1 && x1 == z1 || x1 == -y1 && x1 == z1 || x1 == y1 && x1 == -z1 || x1 == -y1 && x1 == -z1)
-                        worldObj.spawnParticle("smoke", centreX + x1, centreY + y1, centreZ + z1, 0.0f, -0.05f, 0.0f);
-                }
-            }
         }
     }
 }

@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 
 public class Reference {
+    //========MOD INFO======
     public static final String MOD_ID = "EzCraft";
     public static final String MOD_NAME = "EzCraft";
     public static final String MOD_VERISION = "1.7.10-1.1.0";
@@ -21,13 +22,16 @@ public class Reference {
     public static final int GUI_ID_LARGECHEST = 4;
 
 
-    //DmgSource
+    //========DmgSource=========
     public static DamageSource DMG_MOBGRINDER = (new DamageSource("Grinder")).setDamageBypassesArmor();
     public static DamageSource DMG_KATANA = (new DamageSource("Katana")).setDamageBypassesArmor().setDamageAllowedInCreativeMode();
     public static DamageSource DMG_WORMHOLE = new DamageSource("Worm Hole").setDamageBypassesArmor().setDamageIsAbsolute();
 
     public static ItemStack[] chargeable = new ItemStack[]{new ItemStack(ModItems.Railgun), new ItemStack(ModItems.EnderPearlLuancher), new ItemStack(ModItems.ItemMagnet)};
 
+
+    //========Items===========
+    public static final  int scannerRadius = 32;
 
     //========Hammers==========
     //Stone
