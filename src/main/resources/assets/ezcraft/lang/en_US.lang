@@ -16,6 +16,8 @@ item.ezcraft:ItemMagnet.name=Item Magnet
 item.ezcraft:AluminumRod.name=Aluminum Rod
 item.ezcraft:AluminumBlade.name=Aluminum Blade
 item.ezcraft:Coil.name=Coil
+item.ezcraft:Wrench.name=Wrench
+item.ezcraft:Launcher.name=Launcher
 item.ezcraft:Scanner.name=Scanner
 
 item.ezcraft:GodlyIngot.name=Godly Ingot
@@ -30,7 +32,9 @@ item.ezcraft:GodlyChestplate.name=Godly Chestplate
 item.ezcraft:GodlyLeggings.name=Godly Leggings
 item.ezcraft:GodlyBoots.name=Godly Boots
 
-item.ezcraft:AngelWings.name=AngelWings
+item.ezcraft:LeadBoots.name=Lead Boots
+
+item.ezcraft:AngelWings.name=Angel Wings
 
 tile.ezcraft:AlOre.name=Aluminum Ore
 tile.ezcraft:AlBlock.name=Aluminum Block
@@ -39,7 +43,7 @@ tile.ezcraft:MiningExplosive.name=Mining Explosive
 tile.ezcraft:DeployableMine.name=Deployable Mine
 tile.ezcraft:MagicCarpetBlock.name=Magic Carpet Block
 tile.ezcraft:MobGrinder.name=Mob Grinder
-tile.ezcraft:InfiniWater.name=Infini Water
+tile.ezcraft:InfiniWater.name=Infinity Water
 tile.ezcraft:Generator.name=Generator
 tile.ezcraft:GearBox.name=Gear Box
 tile.ezcraft:WoddenShaft.name=Wodden Shaft
