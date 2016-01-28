@@ -6,6 +6,7 @@ import com.fogo01.ezcraft.reference.ReferenceWormHole;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 
@@ -16,18 +17,27 @@ public class TileEntityWormHole extends TileEntity {
     float dmgRadius = ReferenceWormHole.dmgRadius;
 
     @Override
+    public void writeToNBT(NBTTagCompound nbtTagCompound) {
+        super.writeToNBT(nbtTagCompound);
+    }
+
+    @Override
+    public void readFromNBT(NBTTagCompound nbtTagCompound) {
+        super.readFromNBT(nbtTagCompound);
+    }
+
+    @Override
     public void updateEntity() {
         float centreX = xCoord + 0.5f, centreY = yCoord + 0.5f, centreZ = zCoord + 0.5f;
 
-        /*
-        double x = Math.random(), y = Math.random(), z = Math.random();
-        worldObj.spawnParticle("smoke", xCoord + x * 8 - 4, yCoord + y * 8 - 4, zCoord + z * 8 - 4, -x +0.5, -y +0.5, -z +0.5);
-        worldObj.spawnParticle("smoke", xCoord + Math.random() * 5 - 2.5, yCoord + Math.random() * 5 - 2.5, zCoord + Math.random() * 5 - 2.5, 0, 0, 0);
-
-        worldObj.spawnParticle("smoke", centreX + x * 2 * radius - radius, centreY + y * 2 * radius - radius, centreZ + z * 2 * radius - radius, -x / 2, -y / 2, -z / 2);
-
-        worldObj.spawnParticle("smoke", centreX, centreY, centreZ, 0.0f, 0.0f, 0.0f);
-        */
+        for (int x = xCoord - (int)radius; x < xCoord + radius; x++) {
+            for (int y = yCoord - (int)radius; y < yCoord + radius; y++) {
+                for (int z = zCoord - (int)radius; z < zCoord + radius; z++) {
+                    if (Math.random() < 0.01)
+                        worldObj.spawnParticle("smoke", x + 0.5f,y + 0.5f, z + 0.5f, 0, 0, 0);
+                }
+            }
+        }
         
         AxisAlignedBB AABB = AxisAlignedBB.getBoundingBox(centreX - radius, centreY - radius, centreZ - radius, centreX + radius, centreY + radius, centreZ + radius);
         List list = worldObj.getEntitiesWithinAABB(Entity.class, AABB);
@@ -44,7 +54,7 @@ public class TileEntityWormHole extends TileEntity {
                 f = 0.075f;
             }
 
-            f -= entity.getDistanceSq(centreX, centreY, centreZ) * 0.0001;
+            //f -= entity.getDistanceSq(centreX, centreY, centreZ) * 0.0001;
 
             double X = centreX - entity.posX;
             double Y = centreY - entity.posY;

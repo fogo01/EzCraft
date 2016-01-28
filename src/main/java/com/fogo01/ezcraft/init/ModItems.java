@@ -41,6 +41,7 @@ public class ModItems {
 
     public static final ItemArmor LeadBoots = new ItemLeadBoots();
 
+    public static final ItemArmor ScannerGlasses = new ItemScannerGlasses();
     public static final ItemArmor AngelWings = new ItemAngelWings();
 
     public static void init(){
@@ -78,6 +79,7 @@ public class ModItems {
 
         GameRegistry.registerItem(LeadBoots, "LeadBoots");
 
+        GameRegistry.registerItem(ScannerGlasses, "ScannerGlasses");
         GameRegistry.registerItem(AngelWings, "AngelWings");
 	}
 }

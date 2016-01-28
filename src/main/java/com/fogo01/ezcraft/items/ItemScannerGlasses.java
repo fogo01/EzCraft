@@ -1,35 +1,32 @@
 package com.fogo01.ezcraft.items;
 
+import com.fogo01.ezcraft.crativetab.CreativeTabEzCraft;
 import com.fogo01.ezcraft.init.ModBlocks;
 import com.fogo01.ezcraft.init.ModItems;
 import com.fogo01.ezcraft.reference.Reference;
 import com.fogo01.ezcraft.reference.ReferenceWormHole;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class ItemScanner extends ItemEzCraft {
+public class ItemScannerGlasses extends ItemArmor{
     int range = Reference.scannerRadius;
     int radius = ReferenceWormHole.radius;
     float dmgRadius = ReferenceWormHole.dmgRadius;
 
-    public ItemScanner() {
-        super();
-        this.setUnlocalizedName("Scanner");
-        this.setMaxStackSize(1);
+    public ItemScannerGlasses() {
+        super(ArmorMaterial.CLOTH, 0, 0);
+        this.setTextureName(Reference.MOD_ID + ":ScannerGlasses");
+        this.setCreativeTab(CreativeTabEzCraft.EzCraft_TAB);
     }
 
     @Override
-    public void onUpdate(ItemStack itemStack, World world, Entity entity, int p_77663_4_, boolean p_77663_5_) {
-        EntityPlayer player;
-        if (entity instanceof EntityPlayer) {
-            player = (EntityPlayer) entity;
-
-            if (player.getHeldItem() != null && player.getHeldItem().isItemEqual(new ItemStack(ModItems.Scanner))) {
-               scan(player);
-            }
+    public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
+        if (player.getCurrentArmor(3).getItem() == ModItems.ScannerGlasses){
+            scan(player);
         }
     }
 
@@ -67,5 +64,20 @@ public class ItemScanner extends ItemEzCraft {
                 }
             }
         }
+    }
+
+    @Override
+    public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+        return Reference.MOD_ID + ":textures/models/armor/utility_layer2.png";
+    }
+
+    @Override
+    public String getUnlocalizedName() {
+        return String.format("item.%s%s", Reference.MOD_ID.toLowerCase() + ":", "ScannerGlasses");
+    }
+
+    @Override
+    public String getUnlocalizedName(ItemStack itemStack) {
+        return String.format("item.%s%s", Reference.MOD_ID.toLowerCase() + ":", "ScannerGlasses");
     }
 }
