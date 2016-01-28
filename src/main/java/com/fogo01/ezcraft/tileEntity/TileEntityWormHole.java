@@ -1,8 +1,10 @@
 package com.fogo01.ezcraft.tileEntity;
 
+import com.fogo01.ezcraft.init.ModBlocks;
 import com.fogo01.ezcraft.init.ModItems;
 import com.fogo01.ezcraft.reference.Reference;
 import com.fogo01.ezcraft.reference.ReferenceWormHole;
+import com.fogo01.ezcraft.utility.LogHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,21 +15,34 @@ import net.minecraft.util.AxisAlignedBB;
 import java.util.List;
 
 public class TileEntityWormHole extends TileEntity {
-    float radius = ReferenceWormHole.radius;
-    float dmgRadius = ReferenceWormHole.dmgRadius;
+    public float radius = ReferenceWormHole.radius;
+    public float dmgRadius = ReferenceWormHole.dmgRadius;
+    public double radiusMulti = -1;
 
     @Override
     public void writeToNBT(NBTTagCompound nbtTagCompound) {
+        LogHelper.info("Write");
         super.writeToNBT(nbtTagCompound);
+        nbtTagCompound.setDouble("radiusMulti", radiusMulti);
+        LogHelper.info("Write1");
     }
 
     @Override
     public void readFromNBT(NBTTagCompound nbtTagCompound) {
+        LogHelper.info("Read");
         super.readFromNBT(nbtTagCompound);
+        radiusMulti = nbtTagCompound.getDouble("radiusMulti");
+        LogHelper.info("Read1");
     }
 
     @Override
     public void updateEntity() {
+        if (radiusMulti == -1) {
+            radiusMulti = Math.round((Math.random() * 2 - 1) * 10);
+            radiusMulti /= 10;
+            worldObj.notifyBlockChange(xCoord, yCoord, zCoord, ModBlocks.WormHole);
+        }
+
         float centreX = xCoord + 0.5f, centreY = yCoord + 0.5f, centreZ = zCoord + 0.5f;
 
         for (int x = xCoord - (int)radius; x < xCoord + radius; x++) {

@@ -5,6 +5,9 @@ import com.fogo01.ezcraft.init.ModBlocks;
 import com.fogo01.ezcraft.init.ModItems;
 import com.fogo01.ezcraft.reference.Reference;
 import com.fogo01.ezcraft.reference.ReferenceWormHole;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
@@ -19,6 +22,7 @@ public class ItemScannerGlasses extends ItemArmor{
 
     public ItemScannerGlasses() {
         super(ArmorMaterial.CLOTH, 0, 0);
+        this.setUnlocalizedName("ScannerGlasses");
         this.setTextureName(Reference.MOD_ID + ":ScannerGlasses");
         this.setCreativeTab(CreativeTabEzCraft.EzCraft_TAB);
     }
@@ -67,6 +71,7 @@ public class ItemScannerGlasses extends ItemArmor{
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
         return Reference.MOD_ID + ":textures/models/armor/utility_layer2.png";
     }

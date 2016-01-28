@@ -1,6 +1,7 @@
 package com.fogo01.ezcraft.block;
 
 import com.fogo01.ezcraft.crativetab.CreativeTabEzCraft;
+import com.fogo01.ezcraft.init.ModItems;
 import com.fogo01.ezcraft.reference.Reference;
 import com.fogo01.ezcraft.tileEntity.TileEntityWormHole;
 import cpw.mods.fml.relauncher.Side;
@@ -9,8 +10,11 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -26,11 +30,13 @@ public class BlockWormHole extends BlockContainer {
 
     @Override
     public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_, AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {
-        this.setBlockBounds(0, 0, 0, 0, 0, 0);
+        super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
+        this.setBlockBounds(0f, 0f, 0f, 1f, 1f, 1f);
     }
 
     @Override
     public void setBlockBoundsForItemRender() {
+        super.setBlockBoundsForItemRender();
         this.setBlockBounds(0f, 0f, 0f, 1f, 1f, 1f);
     }
 
@@ -42,6 +48,24 @@ public class BlockWormHole extends BlockContainer {
     @Override
     public boolean renderAsNormalBlock() {
         return false;
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
+        if (player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.Scanner) {
+            TileEntityWormHole wormHole = null;
+            if (world.getTileEntity(x, y, z) instanceof TileEntityWormHole)
+                wormHole = (TileEntityWormHole) world.getTileEntity(x, y, z);
+            if (world.isRemote) {
+                double temp = wormHole.radius * 2 + 1;
+                player.addChatMessage(new ChatComponentText("Range: " + temp + "m"));
+                temp = wormHole.dmgRadius * 2 + 1;
+                player.addChatMessage(new ChatComponentText("Damage Range: " + temp + "m"));
+                temp = wormHole.radiusMulti * 2;
+                player.addChatMessage(new ChatComponentText("Extra Range: " + temp + "m"));
+            }
+        }
+        return true;
     }
 
     @Override
