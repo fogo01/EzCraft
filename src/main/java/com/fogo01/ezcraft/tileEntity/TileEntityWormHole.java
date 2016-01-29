@@ -1,6 +1,5 @@
 package com.fogo01.ezcraft.tileEntity;
 
-import com.fogo01.ezcraft.init.ModBlocks;
 import com.fogo01.ezcraft.init.ModItems;
 import com.fogo01.ezcraft.reference.Reference;
 import com.fogo01.ezcraft.reference.ReferenceWormHole;
@@ -9,6 +8,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 
@@ -17,14 +18,14 @@ import java.util.List;
 public class TileEntityWormHole extends TileEntity {
     public float radius = ReferenceWormHole.radius;
     public float dmgRadius = ReferenceWormHole.dmgRadius;
-    public double radiusMulti = -1;
+    public double radiusMulti;
+    public String type;
 
     @Override
     public void writeToNBT(NBTTagCompound nbtTagCompound) {
         LogHelper.info("Write");
         super.writeToNBT(nbtTagCompound);
         nbtTagCompound.setDouble("radiusMulti", radiusMulti);
-        LogHelper.info("Write1");
     }
 
     @Override
@@ -32,17 +33,10 @@ public class TileEntityWormHole extends TileEntity {
         LogHelper.info("Read");
         super.readFromNBT(nbtTagCompound);
         radiusMulti = nbtTagCompound.getDouble("radiusMulti");
-        LogHelper.info("Read1");
     }
 
     @Override
     public void updateEntity() {
-        if (radiusMulti == -1) {
-            radiusMulti = Math.round((Math.random() * 2 - 1) * 10);
-            radiusMulti /= 10;
-            worldObj.notifyBlockChange(xCoord, yCoord, zCoord, ModBlocks.WormHole);
-        }
-
         float centreX = xCoord + 0.5f, centreY = yCoord + 0.5f, centreZ = zCoord + 0.5f;
 
         for (int x = xCoord - (int)radius; x < xCoord + radius; x++) {
@@ -68,7 +62,15 @@ public class TileEntityWormHole extends TileEntity {
             } else {
                 f = 0.075f;
             }
-
+            if (entity instanceof EntityLivingBase) {
+                EntityLivingBase entityLiving = (EntityLivingBase)entity;
+                if (type == ReferenceWormHole.types[0]) {
+                    entityLiving.addPotionEffect(new PotionEffect(Potion.poison.id, 20 * 5, 0));
+                    entityLiving.addPotionEffect(new PotionEffect(Potion.hunger.id, 20 * 5, 0));
+                }  else if (type == ReferenceWormHole.types[1]) {
+                    entityLiving.addPotionEffect(new PotionEffect(Potion.confusion.id, 20 * 5, 1));
+                }
+            }
             //f -= entity.getDistanceSq(centreX, centreY, centreZ) * 0.0001;
 
             double X = centreX - entity.posX;

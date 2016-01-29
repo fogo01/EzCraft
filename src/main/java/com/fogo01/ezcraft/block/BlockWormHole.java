@@ -3,7 +3,9 @@ package com.fogo01.ezcraft.block;
 import com.fogo01.ezcraft.crativetab.CreativeTabEzCraft;
 import com.fogo01.ezcraft.init.ModItems;
 import com.fogo01.ezcraft.reference.Reference;
+import com.fogo01.ezcraft.reference.ReferenceWormHole;
 import com.fogo01.ezcraft.tileEntity.TileEntityWormHole;
+import com.fogo01.ezcraft.utility.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;
@@ -51,18 +53,30 @@ public class BlockWormHole extends BlockContainer {
     }
 
     @Override
+    public void onBlockAdded(World world, int x, int y, int z) {
+        TileEntityWormHole wormHole = null;
+        if (world.getTileEntity(x, y, z) instanceof TileEntityWormHole)
+            wormHole = (TileEntityWormHole) world.getTileEntity(x, y, z);
+        double d =  Math.round((Math.random() * 2 - 1) * 10);
+        d /= 10;
+        wormHole.radiusMulti = d;
+        wormHole.type = ReferenceWormHole.types[(int)Math.floor(Math.random() * ReferenceWormHole.types.length)];
+    }
+
+    @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
         if (player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.Scanner) {
             TileEntityWormHole wormHole = null;
             if (world.getTileEntity(x, y, z) instanceof TileEntityWormHole)
                 wormHole = (TileEntityWormHole) world.getTileEntity(x, y, z);
-            if (world.isRemote) {
+            if (!world.isRemote) {
                 double temp = wormHole.radius * 2 + 1;
                 player.addChatMessage(new ChatComponentText("Range: " + temp + "m"));
                 temp = wormHole.dmgRadius * 2 + 1;
                 player.addChatMessage(new ChatComponentText("Damage Range: " + temp + "m"));
                 temp = wormHole.radiusMulti * 2;
                 player.addChatMessage(new ChatComponentText("Extra Range: " + temp + "m"));
+                player.addChatMessage(new ChatComponentText("Type: " + wormHole.type));
             }
         }
         return true;
