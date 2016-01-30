@@ -52,6 +52,9 @@ tile.ezcraft:BlastFurnace.name=Blast Furnace
 tile.ezcraft:LargeChest.name=Large Chest
 tile.ezcraft:CobbleGen.name=Cobbble Generator
 
+death.attack.Katana=%1$s was sliced to death
+death.attack.Worm Hole=%1$s was killed in a Wormhole
+
 Container.Inventory=Inventory
 Container.Turbine=Turbine
 Container.Generator=Generator
