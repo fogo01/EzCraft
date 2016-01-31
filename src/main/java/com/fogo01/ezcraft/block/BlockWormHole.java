@@ -16,7 +16,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -25,6 +24,8 @@ public class BlockWormHole extends BlockContainer {
     public BlockWormHole() {
         super(Material.rock);
         this.setBlockUnbreakable();
+        this.setHardness(50.0F);
+        this.setResistance(2000.0F);
         this.setBlockName("WormHole");
         this.setCreativeTab(CreativeTabEzCraft.EzCraft_TAB);
         this.setBlockBounds(0f, 0f, 0f, 1f, 1f, 1f);

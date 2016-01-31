@@ -32,6 +32,14 @@ item.ezcraft:GodlyChestplate.name=Godly Chestplate
 item.ezcraft:GodlyLeggings.name=Godly Leggings
 item.ezcraft:GodlyBoots.name=Godly Boots
 
+item.ezcraft:GasMask.name=Gas Mask
+item.ezcraft:HazmatHelmet.name=Hazmat Helmet
+item.ezcraft:HazmatChest.name=Hazmat Chest
+item.ezcraft:HazmatLeggings.name=Hazmat Leggings
+item.ezcraft:HazmatBoots.name=Hazmat Boots
+
+item.ezcraft:ScannerGlasses.name=Scanner Glasses
+
 item.ezcraft:LeadBoots.name=Lead Boots
 
 item.ezcraft:AngelWings.name=Angel Wings
@@ -51,13 +59,15 @@ tile.ezcraft:EnergyCable.name=Energy Cable
 tile.ezcraft:BlastFurnace.name=Blast Furnace
 tile.ezcraft:LargeChest.name=Large Chest
 tile.ezcraft:CobbleGen.name=Cobbble Generator
+tile.ezcraft:Crate.name=Storage Crate
 
 death.attack.Katana=%1$s was sliced to death
 death.attack.Worm Hole=%1$s was killed in a Wormhole
 
-Container.Inventory=Inventory
 Container.Turbine=Turbine
 Container.Generator=Generator
+Container.GearBox=Gear Box
+Container.Crate=Storage Crate
 
 achievement.RickRoll=Rick Roll
 achievement.RickRoll.desc=You just got Rick Rolled!

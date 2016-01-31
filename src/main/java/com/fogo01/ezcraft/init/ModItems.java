@@ -39,7 +39,14 @@ public class ModItems {
     public static final ItemArmor GodlyLeggings = new ItemGodlyLeggings();
     public static final ItemArmor GodlyBoots = new ItemGodlyBoots();
 
+    public static final ItemArmor GasMask = new ItemGasMask();
+    public static final ItemArmor HazmatHelmet = new ItemHazmatHelmet();
+    public static final ItemArmor HazmatChest = new ItemHazmatChets();
+    public static final ItemArmor HazmatLeggings = new ItemHazmatLeggings();
+    public static final ItemArmor HazmatBoots = new ItemHazmatBoots();
+
     public static final ItemArmor LeadBoots = new ItemLeadBoots();
+
 
     public static final ItemArmor ScannerGlasses = new ItemScannerGlasses();
     public static final ItemArmor AngelWings = new ItemAngelWings();
@@ -76,6 +83,12 @@ public class ModItems {
         GameRegistry.registerItem(GodlyChestplate, "GodlyChestplate");
         GameRegistry.registerItem(GodlyLeggings, "GodlyLeggins");
         GameRegistry.registerItem(GodlyBoots, "GodlyBoots");
+
+        GameRegistry.registerItem(GasMask, "GasMask");
+        GameRegistry.registerItem(HazmatHelmet, "HazmatHelmet");
+        GameRegistry.registerItem(HazmatChest, "HazmatChest");
+        GameRegistry.registerItem(HazmatLeggings, "HazmatLeggings");
+        GameRegistry.registerItem(HazmatBoots, "HazmatBoots");
 
         GameRegistry.registerItem(LeadBoots, "LeadBoots");
 

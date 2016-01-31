@@ -2,8 +2,7 @@ package com.fogo01.ezcraft.handler;
 
 import com.fogo01.ezcraft.client.gui.*;
 import com.fogo01.ezcraft.container.ContainerBlastFurnace;
-import com.fogo01.ezcraft.container.inventory.ContainerGearBox;
-import com.fogo01.ezcraft.container.inventory.ContainerGenerator;
+import com.fogo01.ezcraft.container.inventory.*;
 import com.fogo01.ezcraft.container.ContainerLargeChest;
 import com.fogo01.ezcraft.container.ContainerTurbine;
 import com.fogo01.ezcraft.reference.Reference;
@@ -36,6 +35,12 @@ public class GuiHandler implements IGuiHandler {
                 case Reference.GUI_ID_GEARBOX:
                     if (entity instanceof TileEntityGearBox) {
                         return new ContainerGearBox(player.inventory, (TileEntityGearBox) entity);
+                    }
+                    return null;
+
+                case Reference.GUI_ID_CRATE:
+                    if (entity instanceof TileEntityCrate) {
+                        return new ContainerCrate(player.inventory, (TileEntityCrate) entity);
                     }
                     return null;
 
@@ -76,6 +81,12 @@ public class GuiHandler implements IGuiHandler {
                 case Reference.GUI_ID_GEARBOX:
                     if (entity instanceof TileEntityGearBox) {
                         return new GuiGearBox(player.inventory, (TileEntityGearBox) entity);
+                    }
+                    return null;
+
+                case Reference.GUI_ID_CRATE:
+                    if (entity instanceof TileEntityCrate) {
+                        return new GuiCrate(player.inventory, (TileEntityCrate) entity);
                     }
                     return null;
 

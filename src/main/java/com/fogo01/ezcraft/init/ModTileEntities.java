@@ -8,5 +8,6 @@ public class ModTileEntities {
         GameRegistry.registerTileEntity(TileEntityTurbine.class, "Turbine");
         GameRegistry.registerTileEntity(TileEntityGenerator.class, "Generator");
         GameRegistry.registerTileEntity(TileEntityWormHole.class, "WormHole");
+        GameRegistry.registerTileEntity(TileEntityCrate.class, "Crate");
     }
 }

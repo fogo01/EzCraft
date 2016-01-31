@@ -1,7 +1,7 @@
 package com.fogo01.ezcraft.items;
 
 import com.fogo01.ezcraft.handler.ConfigurationHandler;
-import com.fogo01.ezcraft.utility.LogHelper;
+import com.fogo01.ezcraft.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -37,10 +37,6 @@ public class ItemChunkHammer extends ItemEzCraft {
         int startY = Y;
         int startZ = Z;
 
-
-        LogHelper.info("tempX:" + tempX + " tempZ:" + tempZ);
-        LogHelper.info("X:" + X + "Y:" + Y + " Z:" + Z);
-
         for (; Y >= /*startY - 5*/0; Y--) {
 
             X = startX;
@@ -50,7 +46,7 @@ public class ItemChunkHammer extends ItemEzCraft {
                 for (; Z <= startZ + 15; Z++) {
 
                     Block block = world.getBlock(X, Y, Z);
-                    if (block != Blocks.bedrock) {
+                    if (block != Blocks.bedrock && block != ModBlocks.WormHole && block != ModBlocks.AlOre) {
                         world.setBlockToAir(X, Y, Z);
                         if (Y == startY){
                             world.setBlock(X, Y, Z, Blocks.glass);

@@ -19,12 +19,15 @@ public class ModBlocks {
     public static final BlockEzCraft WoddenShaft = new BlockWoddenShaft();
     public static final BlockContainer GearBox = new BlockGearBox();
 
+    public static final BlockContainer WormHole = new BlockWormHole();
+
+    public static final BlockContainer Crate = new BlockCrate();
+
     public static final BlockContainer BlastFurnaceIdle = new BlockBlastfurnace(false);
     public static final BlockContainer BlastFurnaceActive = new BlockBlastfurnace(true);
 
     public static final BlockContainer LargeChest = new BlockLargeChest();
 
-    public static final BlockContainer WormHole = new BlockWormHole();
 
     public static void init(){
         GameRegistry.registerBlock(AlOre, "AlOre");
@@ -41,11 +44,13 @@ public class ModBlocks {
         GameRegistry.registerBlock(WoddenShaft, "WoddenShaft");
         GameRegistry.registerBlock(GearBox, "GearBox");
 
+        GameRegistry.registerBlock(WormHole, "WormHole");
+
+        GameRegistry.registerBlock(Crate, "Crate");
+
         GameRegistry.registerBlock(BlastFurnaceIdle, "BlastFurnaceIdle");
         GameRegistry.registerBlock(BlastFurnaceActive, "BlastFurnaceActive");
 
         GameRegistry.registerBlock(LargeChest, "LargeChest");
-
-        GameRegistry.registerBlock(WormHole, "WormHole");
     }
 }

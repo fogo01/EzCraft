@@ -18,8 +18,9 @@ public class Reference {
     public static final int GUI_ID_TURBINE = 0;
     public static final int GUI_ID_GENERATOR = 1;
     public static final int GUI_ID_GEARBOX = 2;
-    public static final int GUI_ID_BLASTFURNACE = 3;
-    public static final int GUI_ID_LARGECHEST = 4;
+    public static final int GUI_ID_CRATE = 3;
+    public static final int GUI_ID_BLASTFURNACE = 4;
+    public static final int GUI_ID_LARGECHEST = 5;
 
 
     //========DmgSource=========

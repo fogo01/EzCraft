@@ -74,19 +74,19 @@ public class TileEntityWormHole extends TileEntity {
                 EntityLivingBase entityLiving = (EntityLivingBase)entity;
                 if (entity instanceof EntityPlayer) {
                     EntityPlayer player = (EntityPlayer) entity;
-                    if (player.getCurrentArmor(0) != null) {
-                        if (player.getCurrentArmor(0).getItem() == ModItems.LeadBoots)
+                    if (player.getCurrentArmor(0) != null && player.getCurrentArmor(1) != null && player.getCurrentArmor(2) != null && player.getCurrentArmor(3) != null) {
+                        if (player.getCurrentArmor(0).getItem() == ModItems.HazmatBoots && player.getCurrentArmor(1).getItem() == ModItems.HazmatLeggings && player.getCurrentArmor(2).getItem() == ModItems.HazmatChest && player.getCurrentArmor(3).getItem() == ModItems.HazmatHelmet)
                             flag = true;
                     }
                 }
 
                 if (!flag) {
-                    if (type == ReferenceWormHole.types[4]) {
+                    if (type == ReferenceWormHole.types[5]) {
                         entityLiving.addPotionEffect(new PotionEffect(Potion.poison.id, 20 * 5, 0));
                         entityLiving.addPotionEffect(new PotionEffect(Potion.hunger.id, 20 * 5, 0));
-                    } else if (type == ReferenceWormHole.types[5]) {
-                        entityLiving.addPotionEffect(new PotionEffect(Potion.confusion.id, 20 * 5, 1));
                     } else if (type == ReferenceWormHole.types[6]) {
+                        entityLiving.addPotionEffect(new PotionEffect(Potion.confusion.id, 20 * 5, 1));
+                    } else if (type == ReferenceWormHole.types[7]) {
                         entityLiving.addPotionEffect(new PotionEffect(Potion.wither.id, 20 * 5, 0));
                     }
                 }

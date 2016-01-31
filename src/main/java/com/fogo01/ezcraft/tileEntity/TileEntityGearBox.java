@@ -50,7 +50,7 @@ public class TileEntityGearBox extends TileEntity implements ISidedInventory {
 
     @Override
     public String getInventoryName() {
-        return this.hasCustomInventoryName() ? this.localizedName : "Container.Generator";
+        return this.hasCustomInventoryName() ? this.localizedName : "Container.GearBox";
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.fogo01.ezcraft.items;
 import com.fogo01.ezcraft.crativetab.CreativeTabEzCraft;
 import com.fogo01.ezcraft.init.ModBlocks;
 import com.fogo01.ezcraft.init.ModItems;
+import com.fogo01.ezcraft.reference.RefMaterials;
 import com.fogo01.ezcraft.reference.Reference;
 import com.fogo01.ezcraft.reference.ReferenceWormHole;
 import cpw.mods.fml.relauncher.Side;
@@ -21,7 +22,7 @@ public class ItemScannerGlasses extends ItemArmor{
     float dmgRadius = ReferenceWormHole.dmgRadius;
 
     public ItemScannerGlasses() {
-        super(ArmorMaterial.CLOTH, 0, 0);
+        super(RefMaterials.ARMOR, 0, 0);
         this.setUnlocalizedName("ScannerGlasses");
         this.setTextureName(Reference.MOD_ID + ":ScannerGlasses");
         this.setCreativeTab(CreativeTabEzCraft.EzCraft_TAB);
