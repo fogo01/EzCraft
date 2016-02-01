@@ -1,6 +1,7 @@
 package com.fogo01.ezcraft.tileEntity;
 
-import com.fogo01.ezcraft.utility.LogHelper;
+import com.fogo01.ezcraft.init.ModItems;
+import com.fogo01.ezcraft.reference.Reference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -11,12 +12,13 @@ import net.minecraft.tileentity.TileEntity;
 public class TileEntityCrate extends TileEntity implements ISidedInventory {
     private String localizedName;
     private static final int[] slotsTop = new int[]{0};
-    private static final int[] slotsBottom = new int[]{0};
+    private static final int[] slotsBottom = new int[]{1};
     private static final int[] slotsSides = new int[]{2, 3, 4, 5, 6};
     private ItemStack[] crateItemStacks = new ItemStack[7];
     public ItemStack currentStack = null;
     public int stackSize = 0;
     public int maxSize = 64 * 64;
+    public boolean[] upgrades = new boolean[Reference.numUpggrades];
 
     @Override
     public void readFromNBT(NBTTagCompound nbtTagCompound) {
@@ -63,8 +65,8 @@ public class TileEntityCrate extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
-        return new int[0];
+    public int[] getAccessibleSlotsFromSide(int side) {
+        return side == 0 ? slotsBottom : (side == 1 ? slotsTop : slotsSides);
     }
 
     @Override
@@ -204,6 +206,23 @@ public class TileEntityCrate extends TileEntity implements ISidedInventory {
                     stackSize = 0;
                     currentStack = null;
                 }
+            }
+        }
+
+        for (int i = 0; i < upgrades.length; i++) {
+            upgrades[i] = false;
+            if (i == 0 || upgrades[i - 1]) {
+                for (int j = 1; j < crateItemStacks.length; j++) {
+                    if (crateItemStacks[j] != null && crateItemStacks[j].isItemEqual(new ItemStack(ModItems.CrateUppgrade, 1, i)))
+                        upgrades[i] = true;
+                }
+            }
+        }
+
+        maxSize = 64 * 64;
+        for (int i = 0; i < upgrades.length; i++) {
+            if (upgrades[i]) {
+                maxSize = 64 * 64 * (i + 2);
             }
         }
     }

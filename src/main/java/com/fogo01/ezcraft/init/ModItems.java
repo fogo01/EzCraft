@@ -51,6 +51,8 @@ public class ModItems {
     public static final ItemArmor ScannerGlasses = new ItemScannerGlasses();
     public static final ItemArmor AngelWings = new ItemAngelWings();
 
+    public static final ItemEzCraft CrateUppgrade = new ItemCrateUppgrade();
+
     public static void init(){
         GameRegistry.registerItem(IronHammer, "IronHammer");
         GameRegistry.registerItem(ChunkHammer, "ChunkHammer");
@@ -94,5 +96,7 @@ public class ModItems {
 
         GameRegistry.registerItem(ScannerGlasses, "ScannerGlasses");
         GameRegistry.registerItem(AngelWings, "AngelWings");
+
+        GameRegistry.registerItem(CrateUppgrade, "CrateUppgrade");
 	}
 }

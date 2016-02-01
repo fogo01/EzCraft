@@ -44,6 +44,12 @@ item.ezcraft:LeadBoots.name=Lead Boots
 
 item.ezcraft:AngelWings.name=Angel Wings
 
+item.ezcraft:CrateUpgrade_0.name=Crate Upgrade (I)
+item.ezcraft:CrateUpgrade_1.name=Crate Upgrade (II)
+item.ezcraft:CrateUpgrade_2.name=Crate Upgrade (III)
+item.ezcraft:CrateUpgrade_3.name=Crate Upgrade (IV)
+item.ezcraft:CrateUpgrade_4.name=Crate Upgrade (V)
+
 tile.ezcraft:AlOre.name=Aluminum Ore
 tile.ezcraft:AlBlock.name=Aluminum Block
 tile.ezcraft:Turbine.name=Turbine

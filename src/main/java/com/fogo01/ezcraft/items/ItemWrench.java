@@ -10,6 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 
+import java.util.Arrays;
+
 public class ItemWrench extends ItemEzCraft {
 
     public ItemWrench() {
@@ -34,7 +36,7 @@ public class ItemWrench extends ItemEzCraft {
         } else if (block == ModBlocks.Crate) {
             TileEntityCrate crate = (TileEntityCrate)world.getTileEntity(x, y, z);
             if (crate.currentStack != null)
-                string = crate.currentStack.getDisplayName() + ": " + crate.stackSize + "/" + crate.maxSize;
+                string = crate.currentStack.getDisplayName() + ": " + crate.stackSize + "/" + crate.maxSize + " Upgrades: " + Arrays.toString(crate.upgrades);
             else
                 string = "Empty";
         }

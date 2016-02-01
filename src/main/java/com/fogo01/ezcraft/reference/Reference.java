@@ -32,7 +32,8 @@ public class Reference {
 
 
     //========Items===========
-    public static final  int scannerRadius = 32;
+    public static final int scannerRadius = 32;
+    public static final int numUpggrades = 5;
 
     //========Hammers==========
     //Stone
