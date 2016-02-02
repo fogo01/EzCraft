@@ -9,6 +9,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
 
 public class ContainerCrate extends Container {
     private TileEntityCrate tileEntityCrate;
@@ -66,5 +67,13 @@ public class ContainerCrate extends Container {
         if (p_75137_1_ == 0) {
             this.tileEntityCrate.stackSize = p_75137_2_;
         }
+    }
+
+    @Override
+    public ItemStack transferStackInSlot(EntityPlayer player, int i) {
+        ItemStack itemstack = null;
+        Slot slot = (Slot)this.inventorySlots.get(i);
+
+        return itemstack;
     }
 }

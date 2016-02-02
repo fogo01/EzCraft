@@ -1,4 +1,4 @@
-package com.fogo01.ezcraft.init;
+package com.fogo01.ezcraft.items;
 
 import com.fogo01.ezcraft.items.ItemEzCraft;
 import com.fogo01.ezcraft.reference.Reference;

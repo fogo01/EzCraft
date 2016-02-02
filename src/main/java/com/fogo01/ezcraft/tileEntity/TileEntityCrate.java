@@ -225,6 +225,17 @@ public class TileEntityCrate extends TileEntity implements ISidedInventory {
                 maxSize = 64 * 64 * (i + 2);
             }
         }
+
+/**
+        if (upgrades[0]) {
+            if (stackSize > 64 * 64) {
+                for (int j = 1; j < crateItemStacks.length; j++) {
+                    if (crateItemStacks[j] != null && crateItemStacks[j].isItemEqual(new ItemStack(ModItems.CrateUppgrade, 1, 0)))
+                        crateItemStacks[j] = null;
+                }
+            }
+        }
+*/
     }
 
     public int getStorageScaled(int i) {
