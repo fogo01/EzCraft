@@ -35,9 +35,15 @@ public class ItemWrench extends ItemEzCraft {
             string = "RPM: " + rpm + " Torque: " + torque;
         } else if (block == ModBlocks.Crate) {
             TileEntityCrate crate = (TileEntityCrate)world.getTileEntity(x, y, z);
-            if (crate.currentStack != null)
-                string = crate.currentStack.getDisplayName() + ": " + crate.stackSize + "/" + crate.maxSize + " Upgrades: " + Arrays.toString(crate.upgrades);
-            else
+            if (crate.currentStack != null) {
+                int upg = 0;
+                for (int i = 0; i < crate.upgrades.length; i++) {
+                    if (crate.upgrades[i]) {
+                        upg++;
+                    }
+                }
+                string = crate.currentStack.getDisplayName() + ": " + crate.stackSize + "/" + crate.maxSize + " Upgrades: " + upg;
+            } else
                 string = "Empty";
         }
 

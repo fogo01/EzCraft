@@ -14,6 +14,9 @@ public class Reference {
     public static final String GUI_FACTORY_CLASS = "com.fogo01.ezcraft.client.gui.GuiFactory";
 
 
+    public static final String[] colors = {"White", "Orange", "Magenta", "LightBlue", "Yellow", "Lime", "Pink", "Gray", "LightGray", "Cyan", "Purple", "Blue", "Brown", "Green", "Red", "Black"};
+
+
     //========GUIS==========
     public static final int GUI_ID_TURBINE = 0;
     public static final int GUI_ID_GENERATOR = 1;

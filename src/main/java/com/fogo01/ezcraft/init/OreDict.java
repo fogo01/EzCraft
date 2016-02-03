@@ -1,5 +1,6 @@
 package com.fogo01.ezcraft.init;
 
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class OreDict {
@@ -9,5 +10,8 @@ public class OreDict {
         OreDictionary.registerOre("oreAluminum", ModBlocks.AlOre);
 
         OreDictionary.registerOre("blockAluminum", ModBlocks.AlBlock);
+
+        for (int i = 0; i < 16; i++)
+            OreDictionary.registerOre("sheetPlastic", new ItemStack(ModItems.PlasticSheet, 1, i));
     }
 }

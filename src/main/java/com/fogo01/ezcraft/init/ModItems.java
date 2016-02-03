@@ -23,6 +23,10 @@ public class ModItems {
     public static final ItemEzCraft Wrench = new ItemWrench();
     public static final ItemEzCraft Launcher = new ItemLauncher();
     public static final ItemEzCraft Scanner = new ItemScanner();
+    public static final ItemEzCraft CrateUppgrade = new ItemCrateUppgrade();
+    public static final ItemEzCraft PlantMatter = new ItemPlantMatter();
+    public static final ItemEzCraft OrganicPlastic = new ItemOrganicPlastic();
+    public static final ItemEzCraft PlasticSheet = new ItemPlasticSheet();
 
     public static final ItemPickaxe IronHammer = new ItemIronHammer();
     public static final ItemPickaxe DiamondHammer = new ItemDiamondHammer();
@@ -51,7 +55,6 @@ public class ModItems {
     public static final ItemArmor ScannerGlasses = new ItemScannerGlasses();
     public static final ItemArmor AngelWings = new ItemAngelWings();
 
-    public static final ItemEzCraft CrateUppgrade = new ItemCrateUppgrade();
 
     public static void init(){
         GameRegistry.registerItem(IronHammer, "IronHammer");
@@ -73,6 +76,10 @@ public class ModItems {
         GameRegistry.registerItem(Wrench, "Wrench");
         GameRegistry.registerItem(Launcher, "Launcher");
         GameRegistry.registerItem(Scanner, "Scanner");
+        GameRegistry.registerItem(CrateUppgrade, "CrateUppgrade");
+        GameRegistry.registerItem(PlantMatter, "PlantMatter");
+        GameRegistry.registerItem(OrganicPlastic, "OrganicPlastic");
+        GameRegistry.registerItem(PlasticSheet, "PlasticSheet");
 
         GameRegistry.registerItem(GodlyIngot, "GodlyIngot");
         GameRegistry.registerItem(GodlySword, "GodlySword");
@@ -96,7 +103,5 @@ public class ModItems {
 
         GameRegistry.registerItem(ScannerGlasses, "ScannerGlasses");
         GameRegistry.registerItem(AngelWings, "AngelWings");
-
-        GameRegistry.registerItem(CrateUppgrade, "CrateUppgrade");
 	}
 }

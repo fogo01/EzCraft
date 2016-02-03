@@ -19,6 +19,8 @@ item.ezcraft:Coil.name=Coil
 item.ezcraft:Wrench.name=Wrench
 item.ezcraft:Launcher.name=Launcher
 item.ezcraft:Scanner.name=Scanner
+item.ezcraft:PlantMatter.name=Plant Matter
+item.ezcraft:OrganicPlastic.name=Organic Plastic
 
 item.ezcraft:GodlyIngot.name=Godly Ingot
 item.ezcraft:GodlySword.name=Godly Sword
@@ -49,6 +51,23 @@ item.ezcraft:CrateUpgrade_1.name=Crate Upgrade (II)
 item.ezcraft:CrateUpgrade_2.name=Crate Upgrade (III)
 item.ezcraft:CrateUpgrade_3.name=Crate Upgrade (IV)
 item.ezcraft:CrateUpgrade_4.name=Crate Upgrade (V)
+
+item.ezcraft:PlasticSheet_White.name=White Plastic Sheet
+item.ezcraft:PlasticSheet_Orange.name=Orange Plastic Sheet
+item.ezcraft:PlasticSheet_Magenta.name=Magenta Plastic Sheet
+item.ezcraft:PlasticSheet_LightBlue.name=Light Blue Plastic Sheet
+item.ezcraft:PlasticSheet_Yellow.name=Yellow Plastic Sheet
+item.ezcraft:PlasticSheet_Lime.name=Lime Plastic Sheet
+item.ezcraft:PlasticSheet_Pink.name=Pink Plastic Sheet
+item.ezcraft:PlasticSheet_Gray.name=Gray Plastic Sheet
+item.ezcraft:PlasticSheet_LightGray.name=Light Gray Plastic Sheet
+item.ezcraft:PlasticSheet_Cyan.name=Cyan Plastic Sheet
+item.ezcraft:PlasticSheet_Purple.name=Purple Plastic Sheet
+item.ezcraft:PlasticSheet_Blue.name=Blue Plastic Sheet
+item.ezcraft:PlasticSheet_Brown.name=Brown Plastic Sheet
+item.ezcraft:PlasticSheet_Green.name=Green Plastic Sheet
+item.ezcraft:PlasticSheet_Red.name=Red Plastic Sheet
+item.ezcraft:PlasticSheet_Black.name=Black Plastic Sheet
 
 tile.ezcraft:AlOre.name=Aluminum Ore
 tile.ezcraft:AlBlock.name=Aluminum Block
