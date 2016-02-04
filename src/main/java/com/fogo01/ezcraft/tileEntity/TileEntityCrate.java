@@ -222,7 +222,7 @@ public class TileEntityCrate extends TileEntity implements ISidedInventory {
         maxSize = 64 * 64;
         for (int i = 0; i < upgrades.length; i++) {
             if (upgrades[i]) {
-                maxSize = 64 * 64 * (i + 2);
+                maxSize = 64 * 64 * (i + 1) * 2;
             }
         }
 

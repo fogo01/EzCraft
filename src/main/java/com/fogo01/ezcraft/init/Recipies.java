@@ -56,9 +56,13 @@ public class Recipies {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.CobbleGen), "CCC", "CPC", "CCC", 'C', "cobblestone", 'P', Items.iron_pickaxe));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.Wrench), " A ", " AA", "A  ", 'A', "ingotAluminum"));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.MagicCarpet), "DDD", "DSD", "DDD", 'D', "dyeMagenta", 'S', Items.nether_star));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.WoddenShaft), "W", "W", "W", 'W', "logWood"));
 
         for (int i = 0; i < Reference.colors.length; i++)
             GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.PlasticSheet, 8, i), "PPP", "PDP", "PPP", 'P', "sheetPlastic", 'D', "dye" + Reference.colors[i]));
+
+        for (int i = 0; i < Reference.colors.length; i++)
+            GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.PlasticBlock, 1, i), "PP", "PP", 'P', new ItemStack(ModItems.PlasticSheet, 1, i));
 
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.AlIngot, 9), ModBlocks.AlBlock));
 

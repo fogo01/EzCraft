@@ -69,6 +69,23 @@ item.ezcraft:PlasticSheet_Green.name=Green Plastic Sheet
 item.ezcraft:PlasticSheet_Red.name=Red Plastic Sheet
 item.ezcraft:PlasticSheet_Black.name=Black Plastic Sheet
 
+tile.ezcraft:PlasticBlock_White.name=White Plastic Block
+tile.ezcraft:PlasticBlock_Orange.name=Orange Plastic Block
+tile.ezcraft:PlasticBlock_Magenta.name=Magenta Plastic Block
+tile.ezcraft:PlasticBlock_LightBlue.name=Light Blue Plastic Block
+tile.ezcraft:PlasticBlock_Yellow.name=Yellow Plastic Block
+tile.ezcraft:PlasticBlock_Lime.name=Lime Plastic Block
+tile.ezcraft:PlasticBlock_Pink.name=Pink Plastic Block
+tile.ezcraft:PlasticBlock_Gray.name=Gray Plastic Block
+tile.ezcraft:PlasticBlock_LightGray.name=Light Gray Plastic Block
+tile.ezcraft:PlasticBlock_Cyan.name=Cyan Plastic Block
+tile.ezcraft:PlasticBlock_Purple.name=Purple Plastic Block
+tile.ezcraft:PlasticBlock_Blue.name=Blue Plastic Block
+tile.ezcraft:PlasticBlock_Brown.name=Brown Plastic Block
+tile.ezcraft:PlasticBlock_Green.name=Green Plastic Block
+tile.ezcraft:PlasticBlock_Red.name=Red Plastic Block
+tile.ezcraft:PlasticBlock_Black.name=Black Plastic Block
+
 tile.ezcraft:AlOre.name=Aluminum Ore
 tile.ezcraft:AlBlock.name=Aluminum Block
 tile.ezcraft:Turbine.name=Turbine
