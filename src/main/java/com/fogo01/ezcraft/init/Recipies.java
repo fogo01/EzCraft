@@ -64,6 +64,10 @@ public class Recipies {
         for (int i = 0; i < Reference.colors.length; i++)
             GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.PlasticBlock, 1, i), "PP", "PP", 'P', new ItemStack(ModItems.PlasticSheet, 1, i));
 
+        for (int i = 0; i < Reference.colors.length; i++)
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.IlluminatedPlasticBlock, 8, i), "PPP", "PGP", "PPP", 'P', new ItemStack(ModBlocks.PlasticBlock, 1, i), 'G',  "glowstone"));
+
+
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.AlIngot, 9), ModBlocks.AlBlock));
 
         GameRegistry.addShapelessRecipe(new ItemStack(ModItems.ScannerGlasses), ModItems.Scanner, Items.leather_helmet);

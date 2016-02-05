@@ -86,6 +86,23 @@ tile.ezcraft:PlasticBlock_Green.name=Green Plastic Block
 tile.ezcraft:PlasticBlock_Red.name=Red Plastic Block
 tile.ezcraft:PlasticBlock_Black.name=Black Plastic Block
 
+tile.ezcraft:IlluminatedPlasticBlock_White.name=White Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_Orange.name=Orange Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_Magenta.name=Magenta Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_LightBlue.name=Light Blue Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_Yellow.name=Yellow Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_Lime.name=Lime Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_Pink.name=Pink Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_Gray.name=Gray Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_LightGray.name=Light Gray Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_Cyan.name=Cyan Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_Purple.name=Purple Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_Blue.name=Blue Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_Brown.name=Brown Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_Green.name=Green Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_Red.name=Red Illuminated Plastic Block
+tile.ezcraft:IlluminatedPlasticBlock_Black.name=Black Illuminated Plastic Block
+
 tile.ezcraft:AlOre.name=Aluminum Ore
 tile.ezcraft:AlBlock.name=Aluminum Block
 tile.ezcraft:Turbine.name=Turbine

@@ -24,6 +24,7 @@ public class ModBlocks {
     public static final BlockContainer Crate = new BlockCrate();
 
     public static final BlockPlasticBlock PlasticBlock = new BlockPlasticBlock();
+    public static final BlockIlluminatedPlasticBlock IlluminatedPlasticBlock = new BlockIlluminatedPlasticBlock();
 
     public static final BlockContainer BlastFurnaceIdle = new BlockBlastfurnace(false);
     public static final BlockContainer BlastFurnaceActive = new BlockBlastfurnace(true);
@@ -51,6 +52,7 @@ public class ModBlocks {
         GameRegistry.registerBlock(Crate, "Crate");
 
         GameRegistry.registerBlock(PlasticBlock, ItemBlockPlasticBlock.class, "PlasticBlock");
+        GameRegistry.registerBlock(IlluminatedPlasticBlock, ItemBlockIlluminatedPlasticBlock.class, "IlluminatedPlasticBlock");
 
         GameRegistry.registerBlock(BlastFurnaceIdle, "BlastFurnaceIdle");
         GameRegistry.registerBlock(BlastFurnaceActive, "BlastFurnaceActive");
