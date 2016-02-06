@@ -71,9 +71,6 @@ public class ContainerCrate extends Container {
 
     @Override
     public ItemStack transferStackInSlot(EntityPlayer player, int i) {
-        ItemStack itemstack = null;
-        Slot slot = (Slot)this.inventorySlots.get(i);
-
-        return itemstack;
+        return null;
     }
 }

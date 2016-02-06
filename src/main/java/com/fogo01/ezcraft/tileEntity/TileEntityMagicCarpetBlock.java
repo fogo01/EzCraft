@@ -7,21 +7,22 @@ public class TileEntityMagicCarpetBlock extends TileEntity {
     int life;
 
     @Override
-    public void writeToNBT(NBTTagCompound par1) {
-        //super.writeToNBT(par1);
-        par1.setInteger("life", life);
+    public void readFromNBT(NBTTagCompound nbtTagCompound) {
+        super.readFromNBT(nbtTagCompound);
+        life = nbtTagCompound.getInteger("life");
     }
 
     @Override
-    public void readFromNBT(NBTTagCompound par1) {
-        //super.readFromNBT(par1);
-        this.life = par1.getInteger("life");
+    public void writeToNBT(NBTTagCompound nbtTagCompound) {
+        super.writeToNBT(nbtTagCompound);
+        nbtTagCompound.setInteger("life", life);
     }
 
     @Override
     public void updateEntity() {
         if (life >= 5*20) {
-            this.worldObj.setBlockToAir(this.xCoord, this.yCoord, this.zCoord);
+            if (!this.worldObj.isRemote)
+                this.worldObj.setBlockToAir(this.xCoord, this.yCoord, this.zCoord);
         }else {
             life++;
         }

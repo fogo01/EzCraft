@@ -23,7 +23,7 @@ public class GuiGearBox extends GuiContainer {
     protected void drawGuiContainerForegroundLayer(int par1, int par2) {
         String name = this.tileEntityGearBox.hasCustomInventoryName() ? this.tileEntityGearBox.getInventoryName() : I18n.format(this.tileEntityGearBox.getInventoryName(), new Object[0]);
         this.fontRendererObj.drawString(name, this.xSize / 2 -this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-        name = I18n.format("Container.Inventory", new Object[0]);
+        name = I18n.format("container.inventory", new Object[0]);
         this.fontRendererObj.drawString(name, 8, this.ySize - 96 + 2, 4210752);
     }
 

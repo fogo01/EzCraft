@@ -2,8 +2,11 @@ package com.fogo01.ezcraft.block;
 
 import com.fogo01.ezcraft.reference.Reference;
 import com.fogo01.ezcraft.tileEntity.TileEntityMagicCarpetBlock;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -13,7 +16,6 @@ public class BlockMagicCarpetBlock extends BlockContainer {
     public BlockMagicCarpetBlock() {
         super(Material.iron);
         this.setBlockName("MagicCarpetBlock");
-        this.setBlockTextureName(Reference.MOD_ID + ":MagicCarpetBlock");
         this.setBlockUnbreakable();
         this.setCreativeTab(null);
     }
@@ -35,6 +37,18 @@ public class BlockMagicCarpetBlock extends BlockContainer {
         return false;
     }
 
+    @Override
+    public String getUnlocalizedName() {
+        return String.format("tile.%s%s", Reference.MOD_ID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+    }
 
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister iconRegister) {
+        blockIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+    }
 
+    protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
+        return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+    }
 }

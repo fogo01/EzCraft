@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
 
 public class ContainerGearBox extends Container {
     private TileEntityGearBox tileEntityGearBox;
@@ -30,5 +31,10 @@ public class ContainerGearBox extends Container {
     @Override
     public boolean canInteractWith(EntityPlayer p_75145_1_) {
         return this.tileEntityGearBox.isUseableByPlayer(p_75145_1_);
+    }
+
+    @Override
+    public ItemStack transferStackInSlot(EntityPlayer player, int i) {
+        return null;
     }
 }

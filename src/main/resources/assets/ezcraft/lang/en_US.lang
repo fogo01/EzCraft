@@ -119,6 +119,7 @@ tile.ezcraft:BlastFurnace.name=Blast Furnace
 tile.ezcraft:LargeChest.name=Large Chest
 tile.ezcraft:CobbleGen.name=Cobbble Generator
 tile.ezcraft:Crate.name=Storage Crate
+tile.ezcraft:MagicCarpetBlock.name=Magic Carpet Block
 
 death.attack.Katana=%1$s was sliced to death
 death.attack.Worm Hole=%1$s was killed in a Wormhole
